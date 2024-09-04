@@ -143,3 +143,67 @@ export const ListIcon = styled.img`
 		margin-bottom: 0px;
 	}
 `;
+
+
+
+
+export const SkillsContainer = styled.div`
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem; /* Adjust the gap between items if needed */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+`;
+
+export const Row = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Space between items */
+  box-sizing: border-box; /* Include padding and border in element's total width and height */
+  width: 100%;
+  margin: 0 auto; /* Center the row */
+`;
+
+
+export const SkillItem = styled.div`
+   box-sizing: border-box; /* Include padding and border in element's total width and height */
+  margin-bottom: 2rem; /* Adjust bottom margin as needed */
+
+`;
+
+export const Progress = styled.div`
+  background-color: #e3e3e3;
+  height: 8px;
+  border-radius: 4px;
+  width: 100%;
+  position: relative;
+`;
+
+export const ProgressIn = styled.div`
+  background-color: #04D9FF;
+  height: 100%;
+  border-radius: 4px;
+  width: ${props => props.width || '0%'};
+  position: absolute;
+  left: 0;
+  top: 0;
+`;
+
+export const SkillPercent = styled.div`
+  line-height: 40px;
+  position: absolute;
+  right: 0;
+  top: -40px;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 28px;
+`;
+
+export const SkillTitle = styled.h3`
+  line-height: 40px;
+  font-weight: 800;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin: 0;
+  font-size: 38px;
+`;

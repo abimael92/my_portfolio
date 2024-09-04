@@ -12,7 +12,22 @@ import {
 	ListItem,
 	ListParagraph,
 	ListTitle,
+	SkillsContainer,
+	Row,
+	SkillItem,
+	SkillTitle,
+	Progress,
+	ProgressIn,
+	SkillPercent
 } from './TechnologiesStyles';
+
+const skillsData = [
+	{ name: 'Javascript', percent: '80%' },
+	{ name: 'HTML5', percent: '90%' },
+	{ name: 'CSS3', percent: '85%' },
+	{ name: 'React', percent: '75%' },
+	{ name: 'Bootstrap', percent: '60%' },
+];
 
 const Technologies = () => (
 	<Section id='tech'>
@@ -23,7 +38,6 @@ const Technologies = () => (
 			I've worked with a range a technologies in the web development
 			world. From Front-end, Back-end To Design
 		</SectionText>
-		<SectionDivider colorAlt />
 
 		<List>
 			<ListItem>
@@ -63,6 +77,19 @@ const Technologies = () => (
 				</ListContainer>
 			</ListItem>
 		</List>
+		<SectionDivider colorAlt />
+
+		<SkillsContainer>
+			{skillsData.map((skill, index) => (
+				<SkillItem key={index}>
+					<SkillTitle>{skill.name}</SkillTitle>
+					<Progress>
+						<ProgressIn width={skill.percent} />
+						<SkillPercent>{skill.percent}</SkillPercent>
+					</Progress>
+				</SkillItem>
+			))}
+		</SkillsContainer>
 	</Section>
 );
 

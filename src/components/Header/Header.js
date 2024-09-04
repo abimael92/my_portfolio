@@ -146,21 +146,14 @@ const Header = () => {
 				</li>
 			</Div2>
 			<Div3>
-				<SocialIcons href='http://github.com/abimael92'>
+				<SocialIcons href='http://github.com/abimael92' target='_blank' rel='noopener noreferrer'>
 					<AiFillGithub size='3rem' />
 				</SocialIcons>
-				<SocialIcons href='h7ps://www.linkedin.com/in/abimael-garcia-00580314a/'>
+				<SocialIcons href='https://www.linkedin.com/in/abimael-garcia-00580314a/' target='_blank' rel='noopener noreferrer'>
 					<AiFillLinkedin size='3rem' />
 				</SocialIcons>
-				<SocialIcons href='mailto:abimael199g@gmail.com'>
+				<SocialIcons href='mailto:abimael199g@gmail.com' target='_blank' rel='noopener noreferrer'>
 					<AiOutlineMail size='3rem' />
-				</SocialIcons>
-
-				<SocialIcons>
-					<PaletteChanger
-						showPaletteMenu={showPaletteMenu}
-						setShowPaletteMenu={setShowPaletteMenu}
-					/>
 				</SocialIcons>
 			</Div3>
 		</Container>

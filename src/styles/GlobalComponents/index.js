@@ -151,7 +151,7 @@ export const SectionText = styled.p`
 `;
 
 export const SectionSmallText = styled.p`
-	font-size: 14px;
+	font-size: 16px;
 	line-height: 22px;
 	letter-spacing: 0.02em;
 	color: rgba(255, 255, 255, 0.75);
@@ -159,7 +159,7 @@ export const SectionSmallText = styled.p`
 	margin-top: 10px;
 
 	@media ${(props) => props.theme.breakpoints.md} {
-;		font-size: 12px;
+		font-size: 12px;
 		line-height: 18px;
 		padding-right: 32px;
 	}

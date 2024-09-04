@@ -4,8 +4,11 @@ import {
 	BulletPoint,
 	Container,
 	Row,
+	RightContainer,
+	AboutSectionText,
 	PersonalInfoGrid,
-	PersonalInfo,
+	RotatingText,
+	ImageNeon,
 	Image,
 	InfoItem,
 	InfoTitle,
@@ -19,20 +22,82 @@ import {
 	SectionTitle,
 } from '../../styles/GlobalComponents';
 
-const remToPixels = (rem) => rem * 16;
 
 const About = () => {
 	const birthday = new Date(1992, 9, 7); // October is month 9 (zero-based index)
 	const today = new Date();
 	const age = today.getFullYear() - birthday.getFullYear();
 	const workExp = today.getFullYear() - 2015;
+	const toRotate = ["Web Developer", "Full-Stack Developer", "Software Engineer"];
+
+	const [loopNum, setLoopNum] = useState(0);
+	const [isDeleting, setIsDeleting] = useState(false);
+	const [text, setText] = useState('');
+	const [isPaused, setIsPaused] = useState(false);
+	// const [delta, setDelta] = useState(300 - Math.random() * 100);
+	const delta = 150;
+	const period = 1500;
+
+
+	useEffect(() => {
+		const tick = () => {
+			let i = loopNum % toRotate.length;
+			let fullText = toRotate[i];
+			let updatedText = isDeleting ? fullText.substring(0, text.length - 1) : fullText.substring(0, text.length + 1);
+
+			setText(updatedText);
+
+			if (!isDeleting && updatedText === fullText) {
+				setIsPaused(true); // Pause before deleting
+				setTimeout(() => {
+					setIsDeleting(true); // Start deleting after pause
+					setIsPaused(false); // Reset pause
+				}, period);
+			} else if (isDeleting && updatedText === '') {
+				setIsDeleting(false);
+				setLoopNum(loopNum + 1);
+				setIsPaused(true); // Pause before starting new text
+				setTimeout(() => {
+					setIsPaused(false); // Reset pause
+				}, period);
+			}
+		};
+
+		let ticker;
+		if (!isPaused) {
+			ticker = setInterval(() => {
+				tick();
+			}, delta);
+		}
+
+		return () => clearInterval(ticker); // Clean up interval on unmount
+	}, [text, isDeleting, isPaused, loopNum]); // Add all dependencies
+
+
+
+	// if (isDeleting) {
+	// 	setDelta(prevDelta => prevDelta / 2);
+	// }
+
+	// if (!isDeleting && updatedText === fullText) {
+	// 	setIsDeleting(true);
+	// 	setDelta(period);
+	// } else if (isDeleting && updatedText === '') {
+	// 	setIsDeleting(false);
+	// 	setLoopNum(loopNum + 1);
+	// 	setDelta(500);
+	// } else {
+	// 	setDelta(prevDelta => prevDelta + 1);
+	// }
+
+
 
 	return (
 		<Section id='about'>
 			<SectionTitle>About Me</SectionTitle>
 			<SectionDivider />
 			<Container>
-				<SectionText>
+				<AboutSectionText>
 					Hello! I'm a motivated web app developer with a passion for
 					coding and problem-solving. I thrive on challenges that
 					encourage creative thinking and collaborative teamwork.
@@ -40,16 +105,22 @@ const About = () => {
 					contribute to impactful projects that push boundaries and
 					make a difference. Let's create innovative solutions
 					together!
-				</SectionText>
-				<Image
-					src='/images/my_picture.png'
-					alt='Abimael'
-					width={remToPixels(16)}
-					height={remToPixels(16)}
-					style={{
-						margin: '6px',
-					}}
-				/>
+				</AboutSectionText>
+
+				<RightContainer>
+					<ImageNeon className="neon-medium">
+						<Image
+							src='/images/my_picture.png'
+							alt='Abimael'
+						/>
+					</ImageNeon>
+					<RotatingText>
+						{`I'm a`} <span className="txt-rotate" dataPeriod="1000" data-rotate={JSON.stringify(toRotate)}>
+							<span className="wrap">{text}</span>
+						</span>
+					</RotatingText>
+				</RightContainer>
+
 			</Container>
 			<Row>
 				<PersonalInfoGrid>
@@ -81,7 +152,7 @@ const About = () => {
 					<InfoItem>
 						<BulletPoint />
 						<InfoTitle>
-							Birthday: <InfoDetail>October 7th 1992</InfoDetail>
+							Birthday: <InfoDetail>{birthday.toDateString() || 'October 7th, 1992'}</InfoDetail>
 						</InfoTitle>
 					</InfoItem>
 					<InfoItem>

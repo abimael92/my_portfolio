@@ -1,17 +1,43 @@
 // ExperienceStyles.js
 import styled from 'styled-components';
 
-export const CarouselContainer = styled.div`
-	display: flex;
-	overflow-x: scroll;
-	scroll-snap-type: x mandatory;
+export const TimeLineContainer = styled.div`
+  top: 0;
+  transform: translateX(-50%);
+  z-index: 2;
+  height: auto;
+  min-width: 80%;
+  position: relative; /* Important for absolute positioning of CarouselLine */
+  overflow: visible;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0.5rem 0;
+  padding: 2rem;
 `;
 
+export const CarouselContainer = styled.div`
+  display: flex;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  padding: 5rem;
+  margin: 0;
+  position: relative;
+  width: 90%;
+  box-sizing: border-box;
+  
+  &::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for better aesthetics */
+  }
+`;
+
+
 export const CarouselButtons = styled.div`
-	width: 100%; /* Full width */
+	width: 100%;
 	display: flex;
-	justify-content: center; /* Center align the buttons */
-	margin-bottom: 48px; /* Add some margin to the bottom */
+	justify-content: center;
+	margin: 0 3rem ;
 `;
 
 export const CarouselButton = styled.button`
@@ -45,10 +71,10 @@ export const ArrowButton = styled.button`
 	border: none;
 	cursor: pointer;
 	margin: 0 4px;
-
 	font-size: 800;
 	border-radius: 30px;
-	color: white; /* Set button color to white */
+	color: white;
+	transform: scale(1.6);
 
 	&:hover {
 		box-shadow: 0 0 10px rgba(255, 255, 255, 1);
@@ -65,11 +91,6 @@ export const CarouselButtonDot = styled.div`
 	margin: auto;
 	width: 8px;
 	height: 8px;
-
-	box-shadow: ${(props) =>
-		props.active === props.index
-			? 'none' /* No shadow when active */
-			: '0 0 10px rgba(255, 255, 255, 1)'};
 `;
 export const CarouselMobileScrollNode = styled.div`
 	display: flex;
@@ -79,23 +100,60 @@ export const CarouselMobileScrollNode = styled.div`
 `;
 
 export const CarouselItem = styled.div`
-	min-width: 80%;
-	display: flex;
-	flex-direction: column;
-	align-items: flex-start;
-	position: relative;
-	opacity: ${(props) => (props.active === props.index ? 1 : 0.5)};
-	transition: opacity 0.3s;
-	background-color: rgba(0, 0, 0, 0.1);
-	border-radius: 10px;
-	padding: 1rem;
-	margin: 0.5rem;
-	z-index: ${(props) => (props.active === props.index ? 2 : 1)};
+  min-width: 80%;
+  scroll-snap-align: center;
+  flex: 0 0 80%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  margin-left: 60rem;
+  margin-right: 12rem;
+  margin-top: 5rem;
+ 
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 1rem 2.5rem;
+  z-index: ${(props) => (props.active === props.index ? 2 : 1)};
+  opacity: ${(props) => (props.active === props.index ? 1 : 0.5)};
+  transform: ${(props) =>
+		props.active === props.index ? 'scale(1.1)' : 'scale(1)'};
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+
+   /* Apply box-shadow only when active */
+   box-shadow: ${(props) =>
+		props.active === props.index
+			? '0 0 15px 5px rgba(255, 255, 255, 0.8) !important'
+			: 'none'};
+
+  &:hover, &:focus {
+    transform: scale(1.05);
+  
+  }
+
+  &:active {
+    transform: scale(1.05);
+  }
 `;
 
-export const CarouselItemTitle = styled.h4`
+
+export const CarouselItemTitle = styled.h3`
 	font-weight: bold;
-	font-size: 16px;
+	font-size: 18px;
+	line-height: 24px;
+	color: #fff;
+	text-align: center;
+	margin: 10px auto;
+	padding: 1rem;
+
+	@media ${(props) => props.theme.breakpoints.sm} {
+		font-size: 14px;
+		line-height: 20px;
+	}
+`;
+
+export const TimeLineItemTitle = styled.h4`
+	font-weight: bold;
+	font-size: 26px;
 	line-height: 24px;
 	color: #fff;
 	text-align: center;
@@ -113,29 +171,39 @@ export const CarouselTimeLine = styled.div`
 `;
 
 export const CarouselItemDot = styled.div`
-	background-color: ${(props) => (props.active ? '#007BFF' : 'transparent')};
-	border-radius: 50%;
-	width: 12px;
-	height: 12px;
-	margin: 0 auto;
-	position: relative;
-	z-index: 1;
+  background-color: ${(props) => (props.active ? 'rgb(0,123,255)' : 'rgba(0,123,255,0.7)')};
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  transition: background-color 0.3s ease-in-out;
+
+  box-shadow: ${(props) =>
+		props.active === props.index
+			? '0 0 15px 5px rgba(255, 255, 255, 0.8) !important'
+			: 'none'};
 `;
 
+
 export const CarouselLine = styled.div`
-	background-color: #007bff;
-	height: 2px;
-	position: absolute;
-	top: 50%;
-	left: 0;
-	transform: translateY(-50%);
-	width: 100%;
-	z-index: 0;
-	display: ${(props) => (props.active ? 'block' : 'none')};
+  background-color: ${(props) => (props.active ? 'rgb(0,123,255)' : 'rgba(0,123,255,0.4)')};
+  height: 0.4rem;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 0;
+  width: ${(props) =>
+		props.isFirst ? '60%' :
+			props.isLast ? '50%' : 'calc(100% +  12rem)'};
+
+  left: ${(props) => (props.isFirst ? '50%' : '0')};
+  right: ${(props) => (props.isLast ? '50%' : '0')};
 `;
 
 export const CarouselItemText = styled.p`
-	font-size: 14px;
+	font-size: 28px;
 	line-height: 22px;
 	letter-spacing: 0.02em;
 	color: rgba(255, 255, 255, 0.75);
@@ -156,9 +224,11 @@ export const CarouselItemText = styled.p`
 
 export const CarouselHeader = styled.div`
 	display: flex;
-	align-items: center;
 	font-weight: bold;
-	justify-content: space-between;
+
+
+align-self: center;
+
 `;
 
 export const CarouselHeaderRight = styled.div`
@@ -167,13 +237,11 @@ export const CarouselHeaderRight = styled.div`
 	display: inline-block;
 `;
 
-export const CarouselCompany = styled.span`
-	margin-right: 4px;
+export const CarouselItemHeader = styled.span`
+	font-size: 22px;
+	align-items: center;
 `;
 
-export const CarouselPosition = styled.span`
-	margin-left: 4px;
-`;
 
 export const CalendarIcon = styled.span`
 	font-size: 24px;
@@ -183,8 +251,8 @@ export const CalendarIcon = styled.span`
 
 export const CarouselItemTextBold = styled.p`
 	font-weight: bold;
-	font-size: 16px;
-	line-height: 22px;
+	font-size: 18px;
+	line-height: 12px;
 	letter-spacing: 0.02em;
 	color: rgba(255, 255, 255, 0.75);
 	padding-right: 16px;
@@ -202,7 +270,7 @@ export const CarouselItemTextBold = styled.p`
 `;
 
 export const AchievementList = styled.ul`
-	padding-left: 20px; /* Add some padding to align bullet points */
+	padding-left: 20px; 
 	font-size: 14px;
 	line-height: 22px;
 	letter-spacing: 0.02em;
@@ -308,3 +376,68 @@ export const EducationItemTextBold = styled.p`
 		line-height: 16px;
 	}
 `;
+
+export const ProjectIndustryWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 10px;
+  align-items: center;
+`;
+
+// For Technology tags
+export const TechnologiesWrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+`;
+
+export const TechnologyTag = styled.div`
+  background-color: #f0f0f0;
+  color: #333;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 500;
+`;
+
+
+
+// // Technology Tag
+// export const TechnologyTag = styled.a`
+
+//   position: relative;
+//   background-color: rgb(0,123,255);
+//   color: #ffffff;
+//   padding: 5px 10px;
+//   font-size: 12px;
+//   font-family: "Lucida Grande", "Lucida Sans Unicode", Verdana, sans-serif;
+//   font-weight: bold;
+//   border-bottom-right-radius: 3px;
+//   border-top-right-radius: 3px;
+//   margin: 0.8rem;
+
+
+//   &:before {
+//     content: "";
+//     position: absolute;
+//     top: 0;
+//     left: -12px;
+//     width: 0;
+//     height: 0;
+//     border-color: transparent rgb(0,123,255) transparent transparent;
+//     border-style: solid;
+//     border-width: 12px 12px 12px 0;
+//   }
+
+//   &:after {
+//     content: "";
+//     position: absolute;
+//     top: 10px;
+//     left: 1px;
+//     float: left;
+//     width: 5px;
+//     height: 5px;
+//     border-radius: 50%;
+//     background: #fff;
+//     box-shadow: -1px -1px 2px rgba(0, 0, 0, 0.4);
+//   }

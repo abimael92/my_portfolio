@@ -55,10 +55,12 @@ export const Div2 = styled.div`
 `;
 
 export const Div3 = styled.div`
-	grid-area: 1 / 5 / 2 / 6;
+	grid-area: 1 / 6 / 2 / 6;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
+	padding: 0 3rem !important;
+	//gap: 1rem;
 
 	@media ${(props) => props.theme.breakpoints.sm} {
 		grid-area: 1 / 4 / 2 / 6; /* Adjust for smaller screens */
@@ -80,7 +82,7 @@ export const NavLink = styled.a`
 
 	&.active,
 	&:active {
-		color: #462a60;
+		color: rgb(0,123,255,0.5);;
 		opacity: 1;
 		text-decoration: underline;
 	}
@@ -141,7 +143,7 @@ export const SocialIcons = styled.a`
 	transition: 0.3s ease;
 	color: white;
 	border-radius: 50px;
-	padding: 8px;
+	padding: 0 1rem;
 	&:hover {
 		background-color: #212d45;
 		transform: scale(1.2);

@@ -20,7 +20,7 @@ const Footer = () => {
 			<LinkList>
 				<LinkColumn>
 					<LinkTitle>Call</LinkTitle>
-					<LinkItem href='tel:614-510-5402'>(614)-510-5402</LinkItem>
+					<LinkItem href='tel:614-132-5405'>(614)-132-5405</LinkItem>
 				</LinkColumn>
 				<LinkColumn>
 					<LinkTitle>Email</LinkTitle>
@@ -38,13 +38,13 @@ const Footer = () => {
 					</Slogan>
 				</CompanyContainer>
 				<SocialContainer>
-					<SocialIcons href='http://github.com/abimael92'>
+					<SocialIcons href='http://github.com/abimael92' target='_blank' rel='noopener noreferrer'>
 						<AiFillGithub size='3rem' />
 					</SocialIcons>
-					<SocialIcons href='h7ps://www.linkedin.com/in/abimael-garcia-00580314a/'>
+					<SocialIcons href='https://www.linkedin.com/in/abimael-garcia-00580314a/' target='_blank' rel='noopener noreferrer'>
 						<AiFillLinkedin size='3rem' />
 					</SocialIcons>
-					<SocialIcons href='mailto:abimael199g@gmail.com'>
+					<SocialIcons href='mailto:abimael199g@gmail.com' target='_blank' rel='noopener noreferrer'>
 						<AiOutlineMail size='3rem' />
 					</SocialIcons>
 				</SocialContainer>
