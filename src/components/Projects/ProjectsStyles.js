@@ -43,7 +43,7 @@ export const Img = styled.img`
 export const Content = styled.div`
 	display: flex;
 	flex-direction: column;
-	border: 2px solid color: rgba(255, 255, 255, 0.5);;
+	border: 2px solid  rgba(255, 255, 255, 0.5);
 	border-radius: 15px;
 `;
 
