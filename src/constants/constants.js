@@ -28,10 +28,9 @@ export const projects = [
 	{
 		title: 'MERN Memories',
 		description:
-			"Using React, Node.js, Express & MongoDB you'll learn how to build a Full Stack MERN Application - from start to finish. The App is called Memories and it is a simple social media app that allows users to post interesting events that happened in their lives.",
+			'The App is called Memories and it is a simple social media app that allows users to post interesting events that happened in their lives.',
 		image: '/images/1.png',
 		tags: ['Mongo', 'Express', 'React', 'Node'],
-
 		id: 2,
 	},
 	{
@@ -196,11 +195,6 @@ export const PersonalAchievements = [
 			'Successfully led junior devs in critical module development, ensuring timely delivery and seamless integration.',
 	},
 	{
-		role: 'Architectural Design',
-		achievement:
-			'Designed modular architecture for a key feature, enhancing maintainability and flexibility.',
-	},
-	{
 		role: 'Cross-Functional Collaboration',
 		achievement:
 			'Collaborated with UX/UI designers to translate concepts into responsive interfaces, ensuring seamless integration.',
@@ -216,19 +210,9 @@ export const PersonalAchievements = [
 			'Took ownership of front-end project, guiding team to improve code quality and streamline development.',
 	},
 	{
-		role: 'Technical Documentation',
-		achievement:
-			'Created comprehensive documentation for data processing pipelines, facilitating knowledge transfer.',
-	},
-	{
 		role: 'Full-Stack Expertise',
 		achievement:
 			'Developed dynamic web pages, showcasing proficiency in both front-end and back-end.',
-	},
-	{
-		role: 'Collaboration and Communication',
-		achievement:
-			'Collaborated effectively to optimize performance and ensure data security.',
 	},
 	{
 		role: 'Problem-Solving',

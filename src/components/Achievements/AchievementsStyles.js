@@ -3,30 +3,64 @@ import styled from 'styled-components';
 export const Boxes = styled.div`
 	width: 100%;
 	display: grid;
-	grid-template-columns: repeat(4, 1fr);
-	gap: 24px;
-	margin: 24px 0 40px;
+	justify-content: space-between;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 3rem 0.5rem;
+	margin: 1.5rem;
 
 	@media ${(props) => props.theme.breakpoints.md} {
-		gap: 16px;
-		margin: 20px 0 32px;
 		grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
 	}
 
 	@media ${(props) => props.theme.breakpoints.sm} {
-		display: grid;
-		grid-template-columns: repeat(2, 1fr);
-		gap: 10px;
 		max-width: 500px;
 		margin: 24px auto;
+	}
+`;
+
+export const BoxNum = styled.h5`
+	font-style: normal;
+	font-size: 2.5rem;
+
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+
+	line-height: 22px;
+	letter-spacing: 0.01em;
+	color: #ffffff;
+	/* box-shadow: 0px 4px 10px #007bff; // Accent color */
+
+	margin-bottom: 1rem;
+
+	&::before {
+    content: url('/icons/checkmark.svg'); // Icon before the title
+    margin-right: 10px;
+  }
+
+	@media ${(props) => props.theme.breakpoints.md} {
+		font-size: 18px;
+		line-height: 18px;
+	}
+	@media ${(props) => props.theme.breakpoints.sm} {
+		font-size: 14px;
+		line-height: 14px;
 	}
 `;
 
 export const Box = styled.div`
 	background: #212d45;
 	border-radius: 12px;
-	height: 144px;
-	padding: 24px;
+	width: 90%;
+	height: 25rem;
+	padding: 1.5rem;
+	box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.5); 
+	transition: transform 0.3s ease;
+
+	&:hover {
+	transform: translateY(-5px); // Lift effect on hover
+	}
+
 	@media ${(props) => props.theme.breakpoints.lg} {
 		height: 210px;
 	}
@@ -45,30 +79,16 @@ export const Box = styled.div`
 		}
 	}
 `;
-export const BoxNum = styled.h5`
-	font-style: normal;
-	font-weight: 600;
-	font-size: 20px;
-	line-height: 22px;
-	letter-spacing: 0.01em;
-	color: #ffffff;
-	margin-bottom: 4px;
 
-	@media ${(props) => props.theme.breakpoints.md} {
-		font-size: 18px;
-		line-height: 18px;
-	}
-	@media ${(props) => props.theme.breakpoints.sm} {
-		font-size: 14px;
-		line-height: 14px;
-	}
-`;
+
+
 
 export const BoxText = styled.p`
 	font-style: normal;
 	font-weight: normal;
-	font-size: 14px;
-	line-height: 14px;
+	font-size: 2rem;
+	line-height: 1.6;
+
 	letter-spacing: 0.02em;
 	color: rgba(255, 255, 255, 0.75);
 

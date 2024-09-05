@@ -21,6 +21,7 @@ import {
 	EducationHeaderRight,
 	EducationItemTitle,
 	EducationItemTextBold,
+	EducationItemText,
 	TechnologiesWrapper,
 	TimeLineItemTitle,
 	TimeLineContainer,
@@ -220,8 +221,8 @@ const Experience = () => {
 								{item.date}
 							</EducationItemTitle>
 						</EducationHeaderRight>
-						<EducationItemTextBold>Title: {item.title}</EducationItemTextBold>
-						<EducationItemTextBold>Institution: {item.institution}</EducationItemTextBold>
+						<EducationItemTextBold>{item.title}</EducationItemTextBold>
+						<EducationItemText>{item.institution}</EducationItemText>
 					</React.Fragment>
 				))}
 			</EducationItem>

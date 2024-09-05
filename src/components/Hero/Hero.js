@@ -9,6 +9,15 @@ import {
 import Button from '../../styles/GlobalComponents/Button';
 import { LeftSection } from './HeroStyles';
 
+const hoverStyle = {
+	textDecoration: 'underline', color: '#FF4500'
+};
+
+const defaultStyle = {
+	textDecoration: 'none',
+	color: '#0000ff',
+
+};
 const Hero = (props) => (
 	<>
 		<Section row nopadding>
@@ -32,6 +41,8 @@ const Hero = (props) => (
 						href='https://drive.google.com/uc?export=download&id=1IjFu-kn8scFmSAkGZ1DjC1hDlRuYHm2V'
 						target='_blank'
 						rel='noopener noreferrer'
+						onMouseEnter={(e) => Object.assign(e.currentTarget.style, hoverStyle)}
+						onMouseLeave={(e) => Object.assign(e.currentTarget.style, defaultStyle)}
 						download>
 						Download CV
 					</a>

@@ -82,7 +82,7 @@ export const NavLink = styled.a`
 
 	&.active,
 	&:active {
-		color: rgb(0,123,255,0.5);;
+		color: rgb(0,123,255,0.5);
 		opacity: 1;
 		text-decoration: underline;
 	}

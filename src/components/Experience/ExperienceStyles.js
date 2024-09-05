@@ -310,6 +310,8 @@ export const EducationItem = styled.div`
 	margin: 0.5rem;
 	z-index: 2;
 	align-self: center;
+
+	box-shadow: 0 0 10px rgba(255, 255, 255, 1);
 `;
 
 export const EducationItemTitle = styled.h4`
@@ -326,13 +328,16 @@ export const EducationItemTitle = styled.h4`
 	}
 `;
 
-export const EducationItemText = styled.p`
-	font-size: 14px;
+export const EducationItemTextBold = styled.p`
+	font-size: 20px;
 	line-height: 22px;
 	letter-spacing: 0.02em;
 	color: rgba(255, 255, 255, 0.75);
 	text-align: center;
 	margin: 10px auto 0;
+	padding: 1.2rem;
+
+	font-weight: bold;
 
 	@media ${(props) => props.theme.breakpoints.md} {
 		font-size: 12px;
@@ -348,7 +353,7 @@ export const EducationHeader = styled.div`
 	display: flex;
 	align-items: center;
 	font-weight: bold;
-	justify-content: space-between;
+	/* justify-content: space-between; */
 `;
 
 export const EducationHeaderRight = styled.div`
@@ -357,15 +362,16 @@ export const EducationHeaderRight = styled.div`
 	display: inline-block;
 `;
 
-export const EducationItemTextBold = styled.p`
-	display: flex;
-	font-weight: bold;
+export const EducationItemText = styled.p`
 	align-items: center;
-	font-size: 16px;
+	font-size: 18px;
 	line-height: 22px;
 	letter-spacing: 0.02em;
+	padding: 1rem 0;
 	color: rgba(255, 255, 255, 0.75);
-	margin: 10px 0;
+
+	text-align: center;
+	margin: 10px auto 0;
 
 	@media ${(props) => props.theme.breakpoints.md} {
 		font-size: 14px;

@@ -272,7 +272,8 @@ export const ButtonBack = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	margin: ${({ alt, form }) => (alt || form ? '0' : '0 0 80px')};
+	/* margin: ${({ alt, form }) => (alt || form ? '0' : '0 0 80px')}; */
+	margin:3rem;
 	color: #fff;
 	background: ${({ alt }) =>
 		alt
@@ -282,21 +283,16 @@ export const ButtonBack = styled.div`
 	transition: all 0.3s ease;
 	position: relative;
 	overflow: hidden;
-	opacity: ${({ disabled }) => (disabled ? '.5' : '1')};
+	/* opacity: ${({ disabled }) => (disabled ? '.5' : '1')}; */
+
 
 	&:hover {
-    background: ${({ alt }) =>
-		alt
-			? 'linear-gradient(270deg, #FF4500 0%, #B133FF 100%)' /* Change background color on hover */
-			: 'linear-gradient(270deg, #00A3E0 0%, #B133FF 100%)'};
-    color: #FF4500; /* Change text color on hover */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Optional: Add a shadow effect on hover */
+
+    color: #FF4500 !important; /* Change text color on hover */
+	box-shadow: 0 0 10px rgba(255, 255, 255, 1);
+   // box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Optional: Add a shadow effect on hover */
 	}
 
- 	&:focus {
-    box-shadow: 0 0 10px rgba(0, 255, 255, 0.6); /* Glow effect on focus */
-    outline: none; /* Remove default focus outline */
-  }
 
 	@media ${(props) => props.theme.breakpoints.md} {
 		width: ${({ alt }) => (alt ? '150px' : '184px')};
@@ -340,7 +336,7 @@ export const ButtonFront = styled.button`
 			: 'none'};
 
 	&:hover {
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.6); /* White glow effect on hover */
+    color: #FF4500 !important; /* Change text color on hover */
 	}
 
 	&:focus {
