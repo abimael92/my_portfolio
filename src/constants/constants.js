@@ -2,10 +2,10 @@ export const projects = [
 	{
 		title: 'Pokedex App',
 		description:
-			'The Pokedex App allows you to enter any Pokemon name and display its image along with general stats from the Pokedex. ',
+			'This Pokedex App fetches Pokémon data from the PokéAPI, allowing users to search for any Pokémon by name and view its stats, image, types, abilities, height, and weight.',
 		image: '/images/Pokedex-preview.png',
-		tags: ['React', 'pokeapi API', 'CSS'],
-		source: 'https://github.com/yourusername/pokedex-app', // Replace with actual repository URL
+		tags: ['React', 'PokéAPI', 'TypeScript', 'SCSS'],
+		source: 'https://github.com/abimael92/pokedex-app', // replace with actual repo if needed
 		id: 0,
 	},
 	{
@@ -16,7 +16,7 @@ export const projects = [
 		tags: [
 			'React',
 			'Valtio',
-			'Three-preview.js',
+			'Three.js',
 			'Tailwind CSS',
 			'Node',
 			'Express',
@@ -26,26 +26,21 @@ export const projects = [
 		id: 1,
 	},
 	{
-		title: 'MERN Memories',
+		title: 'Foto Vibes Forever',
 		description:
-			'The App is called Memories and it is a simple social media app that allows users to post interesting events that happened in their lives.',
-		image: '/images/1.png',
-		tags: ['Mongo', 'Express', 'React', 'Node'],
+			'Foto Vibes Forever is a virtual photo album web app where users can upload photos and videos, draw with sketch tools, add custom text, transform media, and personalize albums with custom styles.',
+		image: '/images/fotovibes.png',
+		tags: ['Firebase', 'React', 'TypeScript', 'SCSS', 'Canvas'],
+		source: 'https://github.com/abimael92/foto-vibes-forever', // add real repo if available
 		id: 2,
 	},
 	{
 		title: 'CarShop',
 		description:
-			'The Car Shop is a modern web application that enables users to browse and purchase cars online. Built using React, this app provides a seamless user experience for car enthusiasts.',
+			'CarShop is a web application that enables users to browse and purchase cars online.',
 		image: '/images/CarShop-preview.png',
-		tags: [
-			'React',
-			' NextJS 13',
-			' TypeScript',
-			'Tailwind CSS',
-			'Rapid-API',
-		],
-		source: 'https://github.com/abimael92/car_showcase.git',
+		tags: ['React', 'Node', 'Express', 'MongoDB'],
+		source: 'https://github.com/abimael92/carshop-app', // replace with actual repo
 		id: 3,
 	},
 

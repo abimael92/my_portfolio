@@ -155,6 +155,13 @@ const Header = () => {
 				<SocialIcons href='mailto:abimael199g@gmail.com' target='_blank' rel='noopener noreferrer'>
 					<AiOutlineMail size='3rem' />
 				</SocialIcons>
+
+				{/* <SocialIcons>
+					<PaletteChanger
+						showPaletteMenu={showPaletteMenu}
+						setShowPaletteMenu={setShowPaletteMenu}
+					/>
+				</SocialIcons> */}
 			</Div3>
 		</Container>
 	);
