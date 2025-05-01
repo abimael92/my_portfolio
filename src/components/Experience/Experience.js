@@ -41,7 +41,7 @@ import { Calendar } from '@styled-icons/boxicons-regular';
 
 import { TimeLineData, EducationData } from '../../constants/constants';
 
-const TOTAL_CAROUSEL_COUNT = TimeLineData.length;
+const TOTAL_CAROUSEL_COUNT = TimeLineData?.length;
 
 const Experience = () => {
 	const [activeItem, setActiveItem] = useState(0);
@@ -116,7 +116,7 @@ const Experience = () => {
 
 			<CarouselContainer ref={carouselRef} onScroll={handleScroll}>
 				<CarouselMobileScrollNode>
-					{TimeLineData.map((item, index) => (
+					{TimeLineData?.map((item, index) => (
 						<TimeLineContainer key={index} index={index} active={activeItem}>
 							<TimeLineItemTitle>{item.year}</TimeLineItemTitle>
 							<CarouselTimeLine>
@@ -170,7 +170,7 @@ const Experience = () => {
 
 								<CarouselItemTextBold>Achievements:</CarouselItemTextBold>
 								<AchievementList>
-									{item.achievements.map((achievement, i) => (
+									{item.achievements?.map((achievement, i) => (
 										<li key={i}>{achievement}</li>
 									))}
 								</AchievementList>
@@ -178,7 +178,7 @@ const Experience = () => {
 
 								{/* Styled components for Technologies */}
 								<TechnologiesWrapper>
-									{item.technologies.map((tech, i) => (
+									{item.technologies?.map((tech, i) => (
 										<TechnologyTag key={i}>{tech}</TechnologyTag>
 									))}
 								</TechnologiesWrapper>
@@ -192,7 +192,7 @@ const Experience = () => {
 
 			<CarouselButtons>
 				<ArrowButton onClick={handleBack}>&lt;</ArrowButton>
-				{TimeLineData.map((item, index) => (
+				{TimeLineData?.map((item, index) => (
 					<CarouselButton
 						key={index}
 						index={index}
@@ -211,7 +211,7 @@ const Experience = () => {
 			<SectionTitle2>Education</SectionTitle2>
 			<SectionDivider />
 			<EducationItem>
-				{EducationData.map((item, index) => (
+				{EducationData?.map((item, index) => (
 					<React.Fragment key={index}>
 						<EducationHeaderRight>
 							<EducationItemTitle>
