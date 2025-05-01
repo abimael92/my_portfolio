@@ -14,7 +14,7 @@ const Achievements = () => (
 		<SectionTitle>Personal Achievements</SectionTitle>
 		<SectionDivider />
 		<Boxes>
-			{PersonalAchievements.map((card, index) => (
+			{PersonalAchievements?.map((card, index) => (
 				<Box key={index}>
 					<BoxNum>{`+${card.role}`}</BoxNum>
 					<BoxText>{card.achievement}</BoxText>
