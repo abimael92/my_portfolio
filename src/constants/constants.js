@@ -60,7 +60,17 @@ export const projects = [
 		tags: ['Astro', 'MongoDB', 'Blog', 'Recipes'],
 		source: 'https://github.com/abimael92/tasty-kitchen-tales', // replace with actual repo
 		id: 5,
+	},
+	{
+		title: 'School Management System',
+		description:
+			'A full-featured MERN-based school management platform with AWS S3 integration. It enables administration of students and teachers, real-time dashboards, attendance tracking, performance metrics, and secure file uploads. Built for scalability and maintainability.',
+		image: '/images/school-management-system.png',
+		tags: ['MERN', 'AWS S3', 'MongoDB', 'Redux', 'Dashboard'],
+		source: 'https://github.com/abimael92/school-management-system', // replace with actual repo
+		id: 6,
 	}
+
 
 
 
