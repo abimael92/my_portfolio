@@ -51,7 +51,17 @@ export const projects = [
 		tags: ['Strapi', 'Next.js', 'AWS S3', 'X-RapidAPI', 'React', 'Node.js'],
 		source: 'https://github.com/abimael92/ecommerce-video-game-platform', // replace with actual repo
 		id: 4,
+	},
+	{
+		title: 'Tasty Kitchen Tales',
+		description:
+			'Tasty Kitchen Tales is a visually rich bakery blog built with Astro and MongoDB. It allows users to browse, search, and upload a variety of delicious bakery recipes. The platform emphasizes performance and SEO while providing a smooth content editing experience.',
+		image: '/images/tasty-kitchen-tales.png',
+		tags: ['Astro', 'MongoDB', 'Blog', 'Recipes'],
+		source: 'https://github.com/abimael92/tasty-kitchen-tales', // replace with actual repo
+		id: 5,
 	}
+
 
 
 ];
