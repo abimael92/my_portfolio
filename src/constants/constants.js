@@ -43,6 +43,16 @@ export const projects = [
 		source: 'https://github.com/abimael92/carshop-app', // replace with actual repo
 		id: 3,
 	},
+	{
+		title: 'E-commerce Video Game Platform',
+		description:
+			'An e-commerce platform for buying video games, with functionalities like user authentication, adding games to the wishlist, placing orders, viewing game details, and managing user profiles. The app is integrated with Strapi for the backend, Next.js for the frontend, AWS S3 for media storage, and uses the X-RapidAPI-Host for fetching game ratings.',
+		image: '/images/ecommerce-video-game.png',
+		tags: ['Strapi', 'Next.js', 'AWS S3', 'X-RapidAPI', 'React', 'Node.js'],
+		source: 'https://github.com/abimael92/ecommerce-video-game-platform', // replace with actual repo
+		id: 4,
+	}
+
 
 ];
 
