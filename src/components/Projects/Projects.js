@@ -20,7 +20,9 @@ import {
 	SectionDivider,
 	SectionTitle,
 } from '../../styles/GlobalComponents';
-import { projects } from '../../constants/constants';
+import { Projects as MyProjects } from '../../constants/constants';
+
+console.log("my projects: ", MyProjects);
 
 const Projects = () => (
 	<Section nopadding id='projects'>
@@ -28,7 +30,7 @@ const Projects = () => (
 		<SectionDivider />
 
 		<GridContainer>
-			{projects.map((project, index) => {
+			{MyProjects.map((project, index) => {
 				return (
 					<BlogCard key={index}>
 						<Content>
