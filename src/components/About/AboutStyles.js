@@ -55,20 +55,23 @@ export const Row = styled.div`
 `;
 
 export const RotatingText = styled.h2`
-    font-size: 2.5rem;
+    font-size: 2.35rem;
     font-weight: bold;
     color: #13ADC7;
 	color: rgb(0,123,255,1);
 	margin-top: 1rem; /* Space between image and text */
 
-    .txt-rotate > .wrap {
-        border-right: 0.08em solid #666;
-    }
+  .txt-rotate > .wrap {
+    border-right: 0.1em solid #666;
+    padding: 1rem;
+  }
 
-	@media ${(props) => props.theme.breakpoints.sm} {
-		font-size: 1.5rem;
-		text-align: center; 
-	}
+  @media ${(props) => props.theme.breakpoints.sm} {
+    font-size: 1.5rem;
+    text-align: center;
+    min-width: auto; /* reset for small screens */
+    margin-top: 0.75rem;
+  }
 `;
 
 export const StyledSectionTitle = styled(SectionTitle)`
@@ -88,10 +91,14 @@ export const RightContainer = styled.div`
 	align-items: center; /* Center items horizontally */
 	padding: 1rem; /* Padding around the container */
 
+	min-width: 350px; /* or set a fixed width */
+	width: 350px;
+
 	@media ${(props) => props.theme.breakpoints.md} {
-		flex-direction: row; /* Side by side layout on medium screens */
-		justify-content: space-between; /* Space between text and image */
-		align-items: flex-start; /* Align items to the top */
+		flex-direction: row;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 2rem; /* space between image and text */
 	}
 `;
 
