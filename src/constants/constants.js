@@ -190,15 +190,32 @@ export const TimeLineData = [
 
 
 export const SkillsData = [
+	// Frontend
 	'React',
+	'Next.js',
 	'TypeScript',
+	'JavaScript',
 	'Redux',
 	'HTML',
+	'CSS3',
+	'SCSS',
+	'Tailwind CSS',
+	'Astro',
+	'Canvas',
+
+	// Backend
 	'Node.js',
+	'Express',
 	'MongoDB',
 	'SQL',
-	'CSS3',
+	'Firebase',
+	'Strapi',
+
+	// Cloud / DevOps
+	'AWS S3',
+
 ];
+
 
 export const EducationData = [
 	{
