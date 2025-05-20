@@ -254,6 +254,13 @@ export const SkillsData = [
 	'CI/CD',
 	'Docker',
 
+	// Testing
+	'Jest',
+	'Cypress',
+
+	// Design
+	'Figma',
+
 ];
 
 

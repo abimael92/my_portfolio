@@ -22,12 +22,19 @@ import {
 } from './TechnologiesStyles';
 
 const skillsData = [
-	{ name: 'Javascript', percent: '80%' },
-	{ name: 'HTML5', percent: '90%' },
-	{ name: 'CSS3', percent: '100%' },
-	{ name: 'React', percent: '75%' },
-	{ name: 'Bootstrap', percent: '60%' },
+	{ name: 'HTML5', percent: '95%' },
+	{ name: 'CSS3', percent: '90%' },
+	{ name: 'Bootstrap', percent: '85%' },
+	{ name: 'JavaScript', percent: '90%' },
+	{ name: 'React', percent: '85%' },
+	{ name: 'TypeScript', percent: '80%' },
+	{ name: 'Node.js', percent: '75%' },
+	{ name: 'MongoDB', percent: '70%' },
+	{ name: 'AWS S3', percent: '70%' },
+	{ name: 'GraphQL', percent: '45%' },
+	{ name: 'Three.js', percent: '40%' },
 ];
+
 
 const Technologies = () => (
 	<Section id='tech'>
