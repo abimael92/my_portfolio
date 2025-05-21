@@ -15,14 +15,15 @@ import {
 	UtilityList,
 	Img,
 } from './ProjectsStyles';
+
 import {
 	Section,
 	SectionDivider,
 	SectionTitle,
 } from '../../styles/GlobalComponents';
+
 import { Projects as MyProjects } from '../../constants/constants';
 
-console.log("my projects: ", MyProjects);
 
 const Projects = () => (
 	<Section nopadding id='projects'>
