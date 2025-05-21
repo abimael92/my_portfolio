@@ -95,7 +95,7 @@ const Technologies = () => (
 				<ListContainer>
 					<ListTitle>Frontend</ListTitle>
 					<ListParagraph>
-						React + TypeScript for performant UIs. Built responsive, accessible apps with real-world user flows.
+						Built fast, responsive UIs with React and TypeScript, focusing on accessibility and real-world user experience.
 					</ListParagraph>
 				</ListContainer>
 			</ListItem>
@@ -105,7 +105,7 @@ const Technologies = () => (
 				<ListContainer>
 					<ListTitle>Backend</ListTitle>
 					<ListParagraph>
-						Node.js APIs with MongoDB/SQL. Scalable services, auth flows, and secure data handling.
+						Developed scalable backends using Node.js with MongoDB and SQL, implementing authentication and secure data flows.
 					</ListParagraph>
 				</ListContainer>
 			</ListItem>
@@ -115,7 +115,7 @@ const Technologies = () => (
 				<ListContainer>
 					<ListTitle>DevOps</ListTitle>
 					<ListParagraph>
-						CI/CD pipelines, Docker containers, AWS S3 deploys. Delivered code to prod reliably.
+						Managed deployments with Docker and CI/CD pipelines. Delivered stable releases using AWS S3 and GitHub integrations.
 					</ListParagraph>
 				</ListContainer>
 			</ListItem>
@@ -127,7 +127,7 @@ const Technologies = () => (
 				<ListContainer>
 					<ListTitle>UI / UX</ListTitle>
 					<ListParagraph>
-						Figma to code. Created modern layouts and smooth flows focused on usability and clarity.
+						Designed modern, intuitive interfaces in Figma and translated them into clean, maintainable code for smooth UX.
 					</ListParagraph>
 				</ListContainer>
 			</ListItem>
@@ -137,7 +137,7 @@ const Technologies = () => (
 				<ListContainer>
 					<ListTitle>Teamwork</ListTitle>
 					<ListParagraph>
-						Agile sprints, GitHub PRs, cross-team collab. Delivered features fast with strong team synergy.
+						Collaborated in Agile teams, using GitHub for version control and code reviews. Ensured fast delivery and quality.
 					</ListParagraph>
 				</ListContainer>
 			</ListItem>
@@ -151,7 +151,7 @@ const Technologies = () => (
 				<SkillBar key={index} name={skill.name} percent={skill.percent} />
 			))}
 		</SkillsContainer>
-	</Section>
+	</Section >
 );
 
 export default Technologies;
