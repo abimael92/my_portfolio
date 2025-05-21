@@ -63,7 +63,6 @@ export const RotatingText = styled.h2`
 
   .txt-rotate > .wrap {
     border-right: 0.1em solid #666;
-    padding: 1rem;
   }
 
   @media ${(props) => props.theme.breakpoints.sm} {

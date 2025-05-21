@@ -115,7 +115,8 @@ const About = () => {
 						/>
 					</ImageNeon>
 					<RotatingText>
-						{`I'm a`} <span className="txt-rotate" dataPeriod="1000" data-rotate={JSON.stringify(toRotate)}>
+						<span className="txt-rotate" dataPeriod="1000" data-rotate={JSON.stringify(toRotate)}>
+							{`I'm a `}
 							<span className="wrap">{text}</span>
 						</span>
 					</RotatingText>
