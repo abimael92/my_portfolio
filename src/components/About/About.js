@@ -33,6 +33,8 @@ const About = () => {
 	const workExp = today.getFullYear() - 2015;
 	const toRotate = ["Web Developer", "Full-Stack Developer", "Software Engineer"];
 
+	const remToPixels = (rem) => rem * 16;
+
 	const [loopNum, setLoopNum] = useState(0);
 	const [isDeleting, setIsDeleting] = useState(false);
 	const [text, setText] = useState('');
@@ -115,10 +117,12 @@ const About = () => {
 						<Image
 							src='/images/my_picture.png'
 							alt='Abimael'
+							width={remToPixels(6)}  // example size, adjust as needed
+							height={remToPixels(6)}
 						/>
 					</ImageNeon>
 					<RotatingText>
-						<span className="txt-rotate" dataPeriod="1000" data-rotate={JSON.stringify(toRotate)}>
+						<span className="txt-rotate" data-period="1000" data-rotate={JSON.stringify(toRotate)}>
 							{`I'm a `}
 							<span className="wrap">{text}</span>
 						</span>
