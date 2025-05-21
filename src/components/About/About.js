@@ -1,5 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 
+import { FaUserGraduate, FaPhoneAlt, FaMapMarkerAlt, FaEnvelope, FaBirthdayCake, FaUserClock } from 'react-icons/fa';
+
+
 import {
 	BulletPoint,
 	Container,
@@ -26,7 +29,7 @@ import {
 const About = () => {
 	const birthday = new Date(1992, 9, 7); // October is month 9 (zero-based index)
 	const today = new Date();
-	const age = today.getFullYear() - birthday.getFullYear();
+	const age = today.getFullYear() - birthday.getFullYear() - (today < new Date(today.getFullYear(), birthday.getMonth(), birthday.getDate()) ? 1 : 0);
 	const workExp = today.getFullYear() - 2015;
 	const toRotate = ["Web Developer", "Full-Stack Developer", "Software Engineer"];
 
@@ -123,54 +126,48 @@ const About = () => {
 				</RightContainer>
 
 			</Container>
+
 			<Row>
 				<PersonalInfoGrid>
 					<InfoItem>
-						<BulletPoint />
-						<InfoTitle>Degree: </InfoTitle>
+						<FaUserGraduate />
+						<InfoTitle>Degree:</InfoTitle>
 						<InfoDetail>Bachelor's in Computer Science</InfoDetail>
 					</InfoItem>
 					<InfoItem>
-						<BulletPoint />
-						<InfoTitle>
-							Phone: <InfoDetail> +52 (614) 132 54 05</InfoDetail>
-						</InfoTitle>
+						<FaPhoneAlt />
+						<InfoTitle>Phone:</InfoTitle>
+						<InfoDetail>+52 (614) 132 54 05</InfoDetail>
 					</InfoItem>
 					<InfoItem>
-						<BulletPoint />
-						<InfoTitle>
-							Location:
-							<InfoDetail>Chihuahua, Chih. Mexico</InfoDetail>
-						</InfoTitle>
+						<FaMapMarkerAlt />
+						<InfoTitle>Location:</InfoTitle>
+						<InfoDetail>Chihuahua, Chih. Mexico</InfoDetail>
 					</InfoItem>
 					<InfoItem>
-						<BulletPoint />
-						<InfoTitle>
-							Email:
-							<InfoDetail>abimael1992g@gmail.com</InfoDetail>
-						</InfoTitle>
+						<FaEnvelope />
+						<InfoTitle>Email:</InfoTitle>
+						<InfoDetail>abimael1992g@gmail.com</InfoDetail>
 					</InfoItem>
 					<InfoItem>
-						<BulletPoint />
-						<InfoTitle>
-							Birthday: <InfoDetail>{birthday.toDateString() || 'October 7th, 1992'}</InfoDetail>
-						</InfoTitle>
+						<FaBirthdayCake />
+						<InfoTitle>Birthday:</InfoTitle>
+						<InfoDetail>{birthday.toDateString() || 'October 7th, 1992'}</InfoDetail>
 					</InfoItem>
 					<InfoItem>
-						<BulletPoint />
-						<InfoTitle>
-							Age: <InfoDetail>{age}</InfoDetail>
-						</InfoTitle>
+						<FaUserClock />
+						<InfoTitle>Age:</InfoTitle>
+						<InfoDetail>{age}</InfoDetail>
 					</InfoItem>
 					<InfoItem>
-						<BulletPoint />
-						<InfoTitle>
-							Experience:
-							<InfoDetail>{workExp}</InfoDetail>
-						</InfoTitle>
+						<FaUserClock />
+						<InfoTitle>Experience:</InfoTitle>
+						<InfoDetail>{workExp}</InfoDetail>
 					</InfoItem>
 				</PersonalInfoGrid>
 			</Row>
+
+
 		</Section>
 	);
 };
