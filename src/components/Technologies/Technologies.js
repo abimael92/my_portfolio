@@ -1,9 +1,9 @@
-import React from 'react';
-import { DiFirebase, DiReact, DiZend, DiGithubBadge, DiScrum } from 'react-icons/di';
+import React, { useEffect, useState } from 'react';
+import { DiFirebase, DiReact } from 'react-icons/di';
 import { SiDocker, SiFigma } from 'react-icons/si';
 import { FaCodeBranch } from 'react-icons/fa';
 
-
+import { useInView } from 'react-intersection-observer';
 
 import {
 	Section,
@@ -12,6 +12,7 @@ import {
 	SectionTitle,
 	SectionSubtitle
 } from '../../styles/GlobalComponents';
+
 import {
 	List,
 	List2,
@@ -29,29 +30,65 @@ import {
 } from './TechnologiesStyles';
 
 const skillsData = [
-	{ name: 'HTML5', percent: '95%' },
-	{ name: 'CSS3', percent: '90%' },
-	{ name: 'Bootstrap', percent: '85%' },
-	{ name: 'JavaScript', percent: '90%' },
-	{ name: 'React', percent: '85%' },
-	{ name: 'TypeScript', percent: '80%' },
-	{ name: 'Node.js', percent: '75%' },
-	{ name: 'MongoDB', percent: '70%' },
-	{ name: 'AWS S3', percent: '70%' },
-	{ name: 'GraphQL', percent: '45%' },
-	{ name: 'Three.js', percent: '40%' },
+	{ name: 'HTML5', percent: 95 },
+	{ name: 'CSS3', percent: 90 },
+	{ name: 'Bootstrap', percent: 85 },
+	{ name: 'JavaScript', percent: 90 },
+	{ name: 'React', percent: 85 },
+	{ name: 'TypeScript', percent: 80 },
+	{ name: 'Node.js', percent: 75 },
+	{ name: 'MongoDB', percent: 70 },
+	{ name: 'AWS S3', percent: 70 },
+	{ name: 'GraphQL', percent: 45 },
+	{ name: 'Three.js', percent: 40 },
 ];
+
+
+const SkillBar = ({ name, percent }) => {
+	const [fill, setFill] = useState(0);
+	const [counter, setCounter] = useState(0);
+	const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
+
+	useEffect(() => {
+		if (inView) {
+			let progress = 0;
+			const duration = 6500; // 5 seconds total
+			const stepTime = duration / percent;
+
+			const fillTimeout = setInterval(() => {
+				progress++;
+				setCounter(progress);
+				setFill(progress);
+				if (progress >= percent) clearInterval(fillTimeout);
+			}, stepTime);
+
+			return () => clearInterval(fillTimeout);
+		}
+	}, [inView, percent]);
+
+
+	return (
+		<SkillItem ref={ref}>
+			<SkillTitle>{name}</SkillTitle>
+			<Progress>
+				<ProgressIn width={`${fill}%`} />
+				<SkillPercent>{counter}%</SkillPercent>
+			</Progress>
+		</SkillItem>
+	);
+};
 
 
 const Technologies = () => (
 	<Section id='tech'>
-		<SectionTitle>Technologies </SectionTitle>
+		<SectionTitle>Technologies</SectionTitle>
 		<SectionDivider />
 		<SectionText>
 			I specialize in full-stack development, creating performant and user-centric web applications.
 			My expertise spans modern front-end frameworks, scalable back-end architectures, and user-focused design,
 			enabling me to deliver seamless digital experiences that solve real-world problems.
 		</SectionText>
+
 		<List>
 			<ListItem>
 				<picture><DiReact size="3rem" /></picture>
@@ -106,18 +143,12 @@ const Technologies = () => (
 			</ListItem>
 		</List2>
 
-		<SectionSubtitle>Skills </SectionSubtitle>
+		<SectionSubtitle>Skills</SectionSubtitle>
 		<SectionDivider colorAlt />
 
 		<SkillsContainer>
 			{skillsData.map((skill, index) => (
-				<SkillItem key={index}>
-					<SkillTitle>{skill.name}</SkillTitle>
-					<Progress>
-						<ProgressIn width={skill.percent} />
-						<SkillPercent>{skill.percent}</SkillPercent>
-					</Progress>
-				</SkillItem>
+				<SkillBar key={index} name={skill.name} percent={skill.percent} />
 			))}
 		</SkillsContainer>
 	</Section>
