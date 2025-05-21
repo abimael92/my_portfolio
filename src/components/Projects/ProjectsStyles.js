@@ -4,10 +4,10 @@ export const GridContainer = styled.section`
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(2, 1fr);
   padding: 2rem 1rem;
   place-items: stretch;
-  column-gap: 2rem;
+  column-gap: 4rem;
   row-gap: 3rem;
 
   @media ${(props) => props.theme.breakpoints.sm} {
@@ -21,24 +21,26 @@ export const GridContainer = styled.section`
 export const BlogCard = styled.div`
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-  width: 320px;
+  width: 400px;
+  height: 550px; 
   display: flex;
   flex-direction: column;
-  background: #1e1e1e;
+  background: #1e1e1e; /////////////
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   cursor: pointer;
   overflow: hidden;
+  box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.5); 
 
   &:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  	box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.8); 
   }
 `;
 
 /* Img: fixed height with rounded top corners */
 export const Img = styled.img`
   width: 100%;
-  height: 200px;
+  height: 180px;
   object-fit: cover;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
@@ -52,7 +54,7 @@ export const Content = styled.div`
   flex-direction: column;
   border: 2px solid rgba(255, 255, 255, 0.12);
   border-radius: 0 0 12px 12px;
-  background-color: #222;
+  background: #212d45;
 `;
 
 /* TitleContent: center with padding */
@@ -97,16 +99,19 @@ export const Hr = styled.hr`
 
 /* CardInfo: fixed height, scroll if overflow */
 export const CardInfo = styled.p`
-  flex-grow: 1;
-  margin: 0 0 1rem;
-  color: #e4e6e7;
-  font-size: 1.4rem;
-  text-align: justify;
-  overflow-y: auto;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
   padding: 1rem;
+  margin: 0 0.5rem;
+  width: calc(100% - 1rem);
+  height: 120px;  /* reduce height */
+  overflow-y: auto;
+  color: #e4e6e7;
+  font-size: 1.6rem;
+  text-align: justify;
   box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  border: 0.8px solid white;
+  border-radius: 4px;
 
   /* Scrollbar styling */
   &::-webkit-scrollbar {
@@ -160,13 +165,15 @@ export const TagList = styled.ul`
   flex-wrap: wrap;
   list-style: none;
   justify-content: center;
-  margin: 0.5rem 0 0;
-  padding: 0.5rem 1rem;
-  gap: 0.6rem;
-  max-height: 100px;
+  padding: 0.3rem;
+  margin: 0 0.5rem;
+  width: calc(100% - 1rem);
+  height: 75px; /* reduce height */
   overflow-y: auto;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  border: 0.8px solid white;
+  border-radius: 4px;
 
   /* scrollbar */
   &::-webkit-scrollbar {
@@ -191,4 +198,6 @@ export const Tag = styled.li`
   height: 28px;
   user-select: none;
   white-space: nowrap;
+  gap: 1rem;
+  margin: 0.5rem;
 `;
