@@ -209,7 +209,8 @@ export const Row = styled.div`
 
 export const SkillItem = styled.div`
    box-sizing: border-box; /* Include padding and border in element's total width and height */
-  margin-bottom: 2rem; /* Adjust bottom margin as needed */
+   margin: 2rem; /* Adjust bottom margin as needed */
+   gap: 2rem;
 
 `;
 
@@ -238,7 +239,7 @@ export const SkillPercent = styled.div`
   top: -40px;
   font-weight: 400;
   color: #ffffff;
-  font-size: 28px;
+  font-size: 24px;
 `;
 
 export const SkillTitle = styled.h3`
@@ -247,5 +248,5 @@ export const SkillTitle = styled.h3`
   color: #ffffff;
   text-transform: capitalize;
   margin: 0;
-  font-size: 38px;
+  font-size: 26px;
 `;
