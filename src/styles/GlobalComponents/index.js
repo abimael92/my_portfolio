@@ -129,26 +129,29 @@ export const SectionSubtitle = styled.h3`
 `;
 
 export const SectionText = styled.p`
-	max-width: 800px;
-	font-size: 24px;
-	line-height: 40px;
-	font-weight: 300;
-	padding-bottom: 3.6rem;
-	color: rgba(255, 255, 255, 0.5);
+  max-width: 800px;
+  font-size: 20px;
+  line-height: 1.6;
+  font-weight: 300;
+  padding-bottom: 3.6rem;
+  color: rgba(255, 255, 255, 0.75);
+  /* margin: 0 auto; */
 
-	@media ${(props) => props.theme.breakpoints.md} {
-		max-width: 670px;
-		font-size: 20px;
-		line-height: 32px;
-		padding-bottom: 24px;
-	}
+  @media (max-width: 768px) {
+    font-size: 18px;
+    line-height: 1.5;
+    padding-bottom: 2.4rem;
+    max-width: 90%;
+  }
 
-	@media ${(props) => props.theme.breakpoints.sm} {
-		font-size: 16px;
-		line-height: 24px;
-		padding-bottom: 16px;
-	}
+  @media (max-width: 480px) {
+    font-size: 16px;
+    line-height: 1.4;
+    padding-bottom: 2rem;
+    max-width: 100%;
+  }
 `;
+
 
 export const SectionSmallText = styled.p`
 	font-size: 16px;

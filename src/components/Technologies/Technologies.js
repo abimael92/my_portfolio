@@ -42,8 +42,10 @@ const Technologies = () => (
 		<SectionDivider />
 
 		<SectionText>
-			I've worked with a range a technologies in the web development
-			world. From Front-end, Back-end To Design
+			I have hands-on experience across the full web development stack,
+			including front-end, back-end, and design technologies.
+			My skill set enables me to build seamless, efficient, and visually compelling applications
+			that deliver outstanding user experiences.
 		</SectionText>
 
 		<List>
