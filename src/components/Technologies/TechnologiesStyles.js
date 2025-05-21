@@ -32,27 +32,63 @@ export const MainImage = styled.img`
 `;
 
 export const List = styled.ul`
-	list-style-type: none;
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 40px;
-	margin: 3rem 0;
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 320px);
+  justify-content: center; /* center the grid */
+  gap: 40px;
+  max-width: calc(320px * 3 + 40px * 2); /* max 3 items + 2 gaps */
+  margin: 3rem auto;
 
-	@media ${(props) => props.theme.breakpoints.lg} {
-		margin: 64px 0;
-	}
 
-	@media ${(props) => props.theme.breakpoints.md} {
-		margin: 64px 0;
-		gap: 24px;
-	}
+  @media ${(props) => props.theme.breakpoints.lg} {
+    max-width: 820px;
+    margin: 64px auto;
+  }
 
-	@media ${(props) => props.theme.breakpoints.sm} {
-		display: flex;
-		flex-direction: column;
-		margin: 32px 0;
-	}
+  @media ${(props) => props.theme.breakpoints.md} {
+    max-width: 700px;
+    margin: 64px auto;
+    gap: 24px;
+  }
+
+  @media ${(props) => props.theme.breakpoints.sm} {
+    display: flex;
+    flex-direction: column;
+    margin: 32px 0;
+    max-width: 100%;
+  }
 `;
+
+export const List2 = styled.ul`
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(2, 320px);
+  justify-content: center; /* center the grid */
+  gap: 40px;
+  max-width: calc(320px * 2 + 80px * 4); /* max 3 items + 2 gaps */
+  margin: 3rem auto;
+
+
+  @media ${(props) => props.theme.breakpoints.lg} {
+    max-width: 820px;
+    margin: 64px auto;
+  }
+
+  @media ${(props) => props.theme.breakpoints.md} {
+    max-width: 700px;
+    margin: 64px auto;
+    gap: 24px;
+  }
+
+  @media ${(props) => props.theme.breakpoints.sm} {
+    display: flex;
+    flex-direction: column;
+    margin: 32px 0;
+    max-width: 100%;
+  }
+`;
+
 
 export const ListContainer = styled.div`
 	display: flex;
@@ -102,12 +138,18 @@ export const ListParagraph = styled.p`
 `;
 
 export const ListItem = styled.li`
+  width: 320px;
 	border-radius: 10px;
 	box-shadow: 3px 3px 20px rgba(80, 78, 78, 0.5);
 	max-width: 320px;
+	margin: 0 ;
+	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
 	padding: 2rem;
+	transition: transform 0.3s ease;
+	
+
 	&:hover {
 		background-color: #212d45;
 		transform: scale(1.2);
