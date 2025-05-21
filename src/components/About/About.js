@@ -75,26 +75,8 @@ const About = () => {
 			}, delta);
 		}
 
-		return () => clearInterval(ticker); // Clean up interval on unmount
-	}, [text, isDeleting, isPaused, loopNum]); // Add all dependencies
-
-
-
-	// if (isDeleting) {
-	// 	setDelta(prevDelta => prevDelta / 2);
-	// }
-
-	// if (!isDeleting && updatedText === fullText) {
-	// 	setIsDeleting(true);
-	// 	setDelta(period);
-	// } else if (isDeleting && updatedText === '') {
-	// 	setIsDeleting(false);
-	// 	setLoopNum(loopNum + 1);
-	// 	setDelta(500);
-	// } else {
-	// 	setDelta(prevDelta => prevDelta + 1);
-	// }
-
+		return () => clearInterval(ticker);
+	}, [text, isDeleting, isPaused, loopNum]);
 
 
 	return (
@@ -103,13 +85,10 @@ const About = () => {
 			<SectionDivider />
 			<Container>
 				<AboutSectionText>
-					Hello! I'm a motivated web app developer with a passion for
-					coding and problem-solving. I thrive on challenges that
-					encourage creative thinking and collaborative teamwork.
-					Eager to learn and grow, I'm seeking new opportunities to
-					contribute to impactful projects that push boundaries and
-					make a difference. Let's create innovative solutions
-					together!
+					Hey there! I’m a web developer who loves tackling challenges and learning new things along the way. <br />
+					I enjoy working with great teams where we can share ideas, mentor each other, and build awesome projects together.
+					I’m always on the lookout for exciting opportunities to grow, contribute, and have fun while doing it —
+					ready to turn caffeine into code!
 				</AboutSectionText>
 
 				<RightContainer>
