@@ -216,17 +216,19 @@ export const SkillItem = styled.div`
 
 export const Progress = styled.div`
   background-color: #e3e3e3;
-  height: 8px;
-  border-radius: 4px;
+  height: 12px;
+  border-radius: 6px;
   width: 100%;
   position: relative;
 `;
 
 export const ProgressIn = styled.div`
   background-color: #04D9FF;
+  background: linear-gradient(90deg,  #0072ff 0%, #00c6ff 100%);
   height: 100%;
-  border-radius: 4px;
+  border-radius: 6px;
   width: ${props => props.width || '0%'};
+  transition: width 0.6s ease-in-out;
   position: absolute;
   left: 0;
   top: 0;
@@ -239,7 +241,8 @@ export const SkillPercent = styled.div`
   top: -40px;
   font-weight: 400;
   color: #ffffff;
-  font-size: 24px;
+  font-size: 20px;
+  
 `;
 
 export const SkillTitle = styled.h3`
@@ -248,5 +251,11 @@ export const SkillTitle = styled.h3`
   color: #ffffff;
   text-transform: capitalize;
   margin: 0;
-  font-size: 26px;
+  font-size: 22px;
+
+  border-radius: 12px;
+  padding: 2px 8px;
+  font-weight: bold;
+  white-space: nowrap;
+
 `;
