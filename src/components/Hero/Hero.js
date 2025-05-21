@@ -28,13 +28,14 @@ const Hero = (props) => (
 					Abimael Garcia (Web Developer)
 				</SectionTitle>
 				<SectionText>
-					Experienced Full-Stack Developer with ten years of expertise in
-					building web applications from the ground up. Known for delivering
-					high-quality, scalable solutions and for effective collaboration in
-					diverse, multicultural teams. Proficient in React, Redux, Typescript,
-					Node.js, MongoDB, among other technologies, and dedicated to
-					driving innovation and excellence throughout the entire
-					development process.
+					Full-Stack Developer with 10 years of experience
+					building scalable systems and solving tough technical challenges.
+					Known for effective collaboration in diverse, multicultural teams and adapting quickly to fast-paced demands.
+					Skilled at leading greenfield builds, improving legacy systems, and selecting the right architecture
+					— from monolith to microservices or serverless.
+					Proficient in React, TypeScript, Node.js, SQL, MongoDB, and GraphQL.
+					Committed to clean code, constant learning, and delivering real-world impact
+					from design to deployment.
 				</SectionText>
 				<Button onClick={props.handleClick}>
 					<a

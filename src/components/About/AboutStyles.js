@@ -21,31 +21,40 @@ export const PersonalInfo = styled.div`
 export const PersonalInfoGrid = styled(PersonalInfo)`
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
-	gap: 12px;
-	padding: 12px;
+	gap: 24px 32px; /* More horizontal and vertical space */
+	padding: 24px; 
 	box-sizing: border-box;
 	min-width: 0;
 `;
 
 export const InfoItem = styled.div`
-	display: flex;
-	align-items: center;
-	margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 16px;
+  color: #fff;
+  flex-wrap: nowrap;
+
+  svg {
+    font-size: 24px; /* Larger icon */
+    min-width: 24px;
+  }
+
 `;
 
 export const InfoTitle = styled.h4`
 	font-weight: bold;
-	margin: 0;
 	display: flex;
 	align-items: center;
-	font-size: 24px;
-	margin-right: 8px;
+	font-size: 18.5px;
 `;
 
 export const InfoDetail = styled.span`
 	font-weight: normal;
-	font-size: 20px;
-	padding-left: 8px;
+	font-size: 16.75px;
+	padding-left: 4px;
+	line-height: 1.4;
+	word-break: break-word;
 `;
 
 export const Row = styled.div`
@@ -63,7 +72,6 @@ export const RotatingText = styled.h2`
 
   .txt-rotate > .wrap {
     border-right: 0.1em solid #666;
-    padding: 1rem;
   }
 
   @media ${(props) => props.theme.breakpoints.sm} {

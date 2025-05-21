@@ -1,5 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 
+import { FaUserGraduate, FaPhoneAlt, FaMapMarkerAlt, FaEnvelope, FaBirthdayCake, FaUserClock } from 'react-icons/fa';
+
+
 import {
 	BulletPoint,
 	Container,
@@ -26,9 +29,11 @@ import {
 const About = () => {
 	const birthday = new Date(1992, 9, 7); // October is month 9 (zero-based index)
 	const today = new Date();
-	const age = today.getFullYear() - birthday.getFullYear();
+	const age = today.getFullYear() - birthday.getFullYear() - (today < new Date(today.getFullYear(), birthday.getMonth(), birthday.getDate()) ? 1 : 0);
 	const workExp = today.getFullYear() - 2015;
 	const toRotate = ["Web Developer", "Full-Stack Developer", "Software Engineer"];
+
+	const remToPixels = (rem) => rem * 16;
 
 	const [loopNum, setLoopNum] = useState(0);
 	const [isDeleting, setIsDeleting] = useState(false);
@@ -70,26 +75,8 @@ const About = () => {
 			}, delta);
 		}
 
-		return () => clearInterval(ticker); // Clean up interval on unmount
-	}, [text, isDeleting, isPaused, loopNum]); // Add all dependencies
-
-
-
-	// if (isDeleting) {
-	// 	setDelta(prevDelta => prevDelta / 2);
-	// }
-
-	// if (!isDeleting && updatedText === fullText) {
-	// 	setIsDeleting(true);
-	// 	setDelta(period);
-	// } else if (isDeleting && updatedText === '') {
-	// 	setIsDeleting(false);
-	// 	setLoopNum(loopNum + 1);
-	// 	setDelta(500);
-	// } else {
-	// 	setDelta(prevDelta => prevDelta + 1);
-	// }
-
+		return () => clearInterval(ticker);
+	}, [text, isDeleting, isPaused, loopNum]);
 
 
 	return (
@@ -98,13 +85,10 @@ const About = () => {
 			<SectionDivider />
 			<Container>
 				<AboutSectionText>
-					Hello! I'm a motivated web app developer with a passion for
-					coding and problem-solving. I thrive on challenges that
-					encourage creative thinking and collaborative teamwork.
-					Eager to learn and grow, I'm seeking new opportunities to
-					contribute to impactful projects that push boundaries and
-					make a difference. Let's create innovative solutions
-					together!
+					Hey there! I’m a web developer who loves tackling challenges and learning new things along the way. <br />
+					I enjoy working with great teams where we can share ideas, mentor each other, and build awesome projects together.
+					I’m always on the lookout for exciting opportunities to grow, contribute, and have fun while doing it —
+					ready to turn caffeine into code!
 				</AboutSectionText>
 
 				<RightContainer>
@@ -112,64 +96,61 @@ const About = () => {
 						<Image
 							src='/images/my_picture.png'
 							alt='Abimael'
+							width={remToPixels(6)}  // example size, adjust as needed
+							height={remToPixels(6)}
 						/>
 					</ImageNeon>
 					<RotatingText>
-						{`I'm a`} <span className="txt-rotate" dataPeriod="1000" data-rotate={JSON.stringify(toRotate)}>
+						<span className="txt-rotate" data-period="1000" data-rotate={JSON.stringify(toRotate)}>
+							{`I'm a `}
 							<span className="wrap">{text}</span>
 						</span>
 					</RotatingText>
 				</RightContainer>
 
 			</Container>
+
 			<Row>
 				<PersonalInfoGrid>
 					<InfoItem>
-						<BulletPoint />
-						<InfoTitle>Degree: </InfoTitle>
+						<FaUserGraduate />
+						<InfoTitle>Degree:</InfoTitle>
 						<InfoDetail>Bachelor's in Computer Science</InfoDetail>
 					</InfoItem>
 					<InfoItem>
-						<BulletPoint />
-						<InfoTitle>
-							Phone: <InfoDetail> +52 (614) 132 54 05</InfoDetail>
-						</InfoTitle>
+						<FaPhoneAlt />
+						<InfoTitle>Phone:</InfoTitle>
+						<InfoDetail>+52 (614) 132 54 05</InfoDetail>
 					</InfoItem>
 					<InfoItem>
-						<BulletPoint />
-						<InfoTitle>
-							Location:
-							<InfoDetail>Chihuahua, Chih. Mexico</InfoDetail>
-						</InfoTitle>
+						<FaMapMarkerAlt />
+						<InfoTitle>Location:</InfoTitle>
+						<InfoDetail>Chihuahua, Chih. Mexico</InfoDetail>
 					</InfoItem>
 					<InfoItem>
-						<BulletPoint />
-						<InfoTitle>
-							Email:
-							<InfoDetail>abimael1992g@gmail.com</InfoDetail>
-						</InfoTitle>
+						<FaEnvelope />
+						<InfoTitle>Email:</InfoTitle>
+						<InfoDetail>abimael1992g@gmail.com</InfoDetail>
 					</InfoItem>
 					<InfoItem>
-						<BulletPoint />
-						<InfoTitle>
-							Birthday: <InfoDetail>{birthday.toDateString() || 'October 7th, 1992'}</InfoDetail>
-						</InfoTitle>
+						<FaBirthdayCake />
+						<InfoTitle>Birthday:</InfoTitle>
+						<InfoDetail>{birthday.toDateString() || 'October 7th, 1992'}</InfoDetail>
 					</InfoItem>
 					<InfoItem>
-						<BulletPoint />
-						<InfoTitle>
-							Age: <InfoDetail>{age}</InfoDetail>
-						</InfoTitle>
+						<FaUserClock />
+						<InfoTitle>Age:</InfoTitle>
+						<InfoDetail>{age}</InfoDetail>
 					</InfoItem>
 					<InfoItem>
-						<BulletPoint />
-						<InfoTitle>
-							Experience:
-							<InfoDetail>{workExp}</InfoDetail>
-						</InfoTitle>
+						<FaUserClock />
+						<InfoTitle>Experience:</InfoTitle>
+						<InfoDetail>{workExp}</InfoDetail>
 					</InfoItem>
 				</PersonalInfoGrid>
 			</Row>
+
+
 		</Section>
 	);
 };
