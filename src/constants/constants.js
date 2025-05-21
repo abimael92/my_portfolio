@@ -1,4 +1,4 @@
-export const projects = [
+export const Projects = [
 	{
 		title: 'Pokedex App',
 		description:
@@ -79,126 +79,190 @@ export const projects = [
 export const TimeLineData = [
 	{
 		year: 2024,
-		position: 'Web Developer',
+		position: 'Developer',
+		company: 'StellarAlgo',
+		date: 'Oct 2024 - Feb 2025',
+		period: '5 months',
+		project: 'Customer Data Platform (CDP)',
+		industry: 'Marketing / Data Analytics',
+		technologies: ['JavaScript', 'Data Integration', 'Testing', 'Debugging'],
+		achievements: [
+			'Enhanced CDP to unify fan data insights.',
+			'Developed advanced segmentation and lead scoring features.',
+			'Integrated multiple data sources to streamline workflows.',
+			'Ensured platform reliability via testing and debugging.',
+		],
+		description:
+			'Contributed to StellarAlgo’s platform to enable data-driven marketing decisions through improved fan engagement and operational efficiency.',
+	},
+	{
+		year: 2024,
+		position: 'Software Specialist',
 		company: 'Tandem Theory',
-		date: 'June 2024 - September 2024',
-		period: '3 months',
+		date: 'Jun 2024 - Sep 2024',
+		period: '4 months',
 		project: 'Educate Texas Platform',
 		industry: 'Education',
 		technologies: ['WordPress', 'PHP', 'JavaScript'],
 		achievements: [
-			'Integrated custom PHP functionalities.',
-			'Enhanced interactivity with JavaScript.',
-			'Managed WordPress content.',
-			'Conducted extensive testing.',
+			'Developed custom PHP functionalities for robust backend.',
+			'Enhanced frontend interactivity with JavaScript.',
+			'Managed WordPress content and site structure.',
+			'Performed thorough testing and debugging.',
 		],
 		description:
-			'Developed a comprehensive platform for Educate Texas, creating over 76 interconnected pages to enhance educational resources and support. Utilized WordPress, PHP, and JavaScript to build a user-friendly and robust site.',
-	},
-	{
-		year: 2024,
-		position: 'Front End Developer',
-		company: 'Onsolve',
-		date: 'August 2023 - March 2024',
-		period: '7 months',
-		project: 'One Call Now',
-		industry: 'Emergency Management',
-		technologies: ['React', 'TypeScript', 'GraphQL'],
-		achievements: [
-			'Developed new features.',
-			'Ensured type safety with TypeScript.',
-			'Integrated GraphQL.',
-			'Managed GitLab repos.',
-			'Provided feedback in code reviews.',
-		],
-		description:
-			'Contributed to web applications for disaster warnings and emergency messaging. Focused on frontend development using React, TypeScript, and GraphQL, and managed multiple repositories.',
+			'Built a multi-page platform to support educational content delivery, focusing on performance and usability.',
 	},
 	{
 		year: 2023,
-		position: 'Frontend Developer',
-		company: 'MANN+HUMMEL',
-		date: 'December 2021 - February 2023',
-		period: '14 months',
-		project: 'STREAMETRIC',
-		industry: 'Industrial Water Quality',
-		technologies: ['React', 'TypeScript', 'Figma'],
+		position: 'Software Specialist (Frontend Developer)',
+		company: 'Onsolve',
+		date: 'Aug 2023 - Mar 2024',
+		period: '8 months',
+		project: 'One Call Now',
+		industry: 'Emergency Management',
+		technologies: ['React', 'TypeScript', 'GraphQL', 'GitLab'],
 		achievements: [
-			'Created responsive UIs.',
-			'Used Agile methodologies.',
-			'Ensured seamless backend integration.',
-			'Contributed to codebase organization.',
-			'Prototyped with Figma.',
+			'Implemented frontend features with React and TypeScript.',
+			'Optimized data fetching using GraphQL.',
+			'Managed multi-repo frontend codebase on GitLab.',
+			'Participated in code reviews and project reporting.',
 		],
 		description:
-			'Developed a web application for monitoring industrial water quality. Designed and implemented responsive UIs using React and TypeScript, focusing on effective communication and integration.',
+			'Supported disaster notification platform by developing user-focused frontend solutions and maintaining code quality.',
 	},
 	{
 		year: 2021,
-		position: 'Full Stack Developer',
-		company: 'Robert Bosch GmbH',
-		date: 'September 2018 - November 2021',
-		period: '38 months',
-		project: 'ITSP (IT Service Portal)',
-		industry: 'Engineering and Technology',
-		technologies: ['React', 'SQL', 'Node.js', 'MongoDB'],
+		position: 'Software Specialist (Frontend Developer)',
+		company: 'MANN+HUMMEL',
+		date: 'Dec 2021 - Feb 2023',
+		period: '15 months',
+		project: 'STREAMETRIC',
+		industry: 'Industrial Water Quality',
+		technologies: ['React', 'TypeScript', 'Jest', 'Cypress', 'Figma'],
 		achievements: [
-			'Developed application views.',
-			'Improved user satisfaction.',
-			'Used Agile practices.',
-			'Met project deadlines effectively.',
+			'Designed responsive UI components.',
+			'Collaborated in Agile teams using Jira and Bitbucket.',
+			'Ensured backend integration with frontend.',
+			'Improved code quality with testing frameworks.',
+			'Prototyped designs in Figma with cross-functional teams.',
 		],
 		description:
-			'Developed and maintained an internal application for Bosch, enhancing workflow efficiency. Utilized React, SQL, Node.js, and MongoDB for various views.',
+			'Developed industrial water quality monitoring web app focusing on UI/UX and robust frontend architecture.',
+	},
+	{
+		year: 2018,
+		position: 'Full Stack Developer',
+		company: 'Robert Bosch GmbH',
+		date: 'Sep 2018 - Nov 2021',
+		period: '38 months',
+		project: 'IT Service Portal (ITSP)',
+		industry: 'Engineering and Technology',
+		technologies: ['React', 'TypeScript', 'Node.js', 'Express', 'MongoDB', 'SQL'],
+		achievements: [
+			'Built and maintained multiple application views.',
+			'Resolved ~30 user issues monthly with low incidence.',
+			'Adopted Agile methodologies with Jira and Git.',
+			'Collaborated with stakeholders to meet deadlines.',
+			'Solved complex technical challenges to improve performance.',
+		],
+		description:
+			'Developed internal service portal enhancing asset request workflows and user experience for Bosch employees.',
+	},
+	{
+		year: 2018,
+		position: 'Developer',
+		company: 'HCL Technologies',
+		date: 'Oct 2018 - Mar 2019',
+		period: '6 months',
+		project: 'Internal Application Development',
+		industry: 'IT Services',
+		technologies: ['React', 'Jest', 'Node.js', 'GitLab', 'Jira'],
+		achievements: [
+			'Created user-friendly React interfaces with tests.',
+			'Collaborated in Agile team environment.',
+			'Enhanced backend integration with Node.js.',
+			'Maintained clean code standards.',
+		],
+		description:
+			'Delivered high-quality internal applications with full-stack development focus in a collaborative Agile team.',
 	},
 	{
 		year: 2018,
 		position: 'Data Engineer',
-		company: 'AutoZone',
-		date: 'March 2016 - August 2018',
-		period: '29 months',
-		project: 'Data Management Systems',
+		company: 'DataZone / AutoZone',
+		date: 'Mar 2016 - Oct 2018',
+		period: '31 months',
+		project: 'Data Management and Pipelines',
 		industry: 'Retail and Technology',
-		technologies: ['SQL', 'NoSQL', 'Internal Tooling'],
+		technologies: ['SQL', 'NoSQL', 'Database Optimization'],
 		achievements: [
-			'Maintained databases.',
-			'Optimized performance.',
-			'Built data pipelines.',
-			'Enhanced data handling strategies.',
+			'Designed and maintained secure and efficient databases.',
+			'Optimized database performance using internal tools.',
+			'Built data pipelines for effective data flow.',
+			'Gained foundational expertise in data engineering.',
 		],
 		description:
-			'Managed data processing and storage systems for AutoZone, ensuring data integrity and performance. Designed and optimized secure databases.',
+			'Managed critical retail data systems, improving database efficiency and security.',
 	},
 	{
 		year: 2016,
 		position: 'ASP.NET Developer',
 		company: 'Jabil Inc.',
-		date: 'June 2015 - March 2016',
+		date: 'Jun 2015 - Mar 2016',
 		period: '9 months',
 		project: 'KPI Command Center',
 		industry: 'Manufacturing',
 		technologies: ['ASP.NET', 'SQL'],
 		achievements: [
-			'Contributed to database maintenance.',
-			'Optimized performance.',
-			'Translated business requirements into specifications.',
+			'Developed dynamic web pages with ASP.NET and SQL.',
+			'Collaborated on performance optimization and security.',
 		],
 		description:
-			'Developed and maintained dynamic web applications for Jabil, focusing on performance and security. Utilized ASP.NET and SQL for development.',
+			'Built and maintained manufacturing performance web apps ensuring security and responsiveness.',
 	},
 ];
 
 
 export const SkillsData = [
+	// Frontend
 	'React',
+	'Next.js',
 	'TypeScript',
+	'JavaScript',
 	'Redux',
 	'HTML',
-	'Node.js',
-	'MongoDB',
-	'SQL',
 	'CSS3',
+	'SCSS',
+	'Tailwind CSS',
+	'Astro',
+	'Canvas',
+
+	// Backend
+	'JWT',
+	'Multer',
+	'dotenv',
+	'Cors',
+	'Mongoose',
+	'Swagger',
+	'Socket.IO',
+
+	// Cloud / DevOps
+	'AWS S3',
+	'Git',
+	'GitHub',
+	'CI/CD',
+	'Docker',
+
+	// Testing
+	'Jest',
+	'Cypress',
+
+	// Design
+	'Figma',
+
 ];
+
 
 export const EducationData = [
 	{
