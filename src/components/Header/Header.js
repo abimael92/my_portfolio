@@ -58,26 +58,15 @@ const Header = () => {
 	return (
 		<Container id='header'>
 			<Div1>
-				<Link href='/' legacyBehavior>
-					<a
-						style={{
-							display: 'flex',
-							alignItems: 'center',
-							color: 'white',
-							marginBottom: '20px',
-						}}
-						legacyBehavior>
-						<Image
-							src='/images/Kachorro92_Logo.png'
-							alt='Logo'
-							width={remToPixels(3)}
-							height={remToPixels(3)}
-							style={{
-								margin: '6px',
-							}}
-						/>
-						<Span>Portfolio</Span>
-					</a>
+				<Link href='/' style={{ display: 'flex', alignItems: 'center', color: 'white', marginBottom: '20px' }}>
+					<Image
+						src='/images/Kachorro92_Logo.png'
+						alt='Logo'
+						width={remToPixels(3)}
+						height={remToPixels(3)}
+						style={{ margin: '6px' }}
+					/>
+					<Span>Portfolio</Span>
 				</Link>
 			</Div1>
 			<Div2>
