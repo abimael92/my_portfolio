@@ -67,6 +67,19 @@ export const Div3 = styled.div`
 	}
 `;
 
+export const UserLogin = styled.div`
+	position: absolute;
+	top: 2.5rem;
+	right: 0;
+	background: #222;
+	color: white;
+	border-radius: 4px;
+	width: 250px;
+	box-shadow: 0 0 10px rgba(0,0,0,0.5);
+	z-index: 10000;
+	padding: 0.5rem;
+	`;
+
 // Navigation Links
 export const NavLink = styled.a`
 	font-size: 2rem;
