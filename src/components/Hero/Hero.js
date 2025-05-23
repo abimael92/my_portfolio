@@ -5,11 +5,12 @@ import {
 	SectionTitle,
 } from '../../styles/GlobalComponents';
 import Button from '../../styles/GlobalComponents/Button';
-import { LeftSection } from './HeroStyles';
+import { LeftSection, ButtonContainer } from './HeroStyles';
+import BlurWrapper from '../PrivateContent/BlurWrapper';
 
 const workExp = new Date().getFullYear() - 2015;
 
-const Hero = (props) => (
+const Hero = (props, { authenticated }) => (
 	<Section row nopadding>
 		<LeftSection>
 			<SectionTitle main center>
@@ -27,16 +28,20 @@ const Hero = (props) => (
 				Committed to clean code, constant learning, and delivering real-world impact
 				from design to deployment.
 			</SectionText>
-			<Button onClick={props.handleClick}>
-				<a
-					href='https://drive.google.com/uc?export=download&id=1IjFu-kn8scFmSAkGZ1DjC1hDlRuYHm2V'
-					target='_blank'
-					rel='noopener noreferrer'
-					style={{ textDecoration: 'none', color: 'inherit' }}
-					download>
-					Download CV
-				</a>
-			</Button>
+			<ButtonContainer>
+				<BlurWrapper authenticated={authenticated}>
+					<Button onClick={props.handleClick}>
+						<a
+							href='https://drive.google.com/uc?export=download&id=1IjFu-kn8scFmSAkGZ1DjC1hDlRuYHm2V'
+							target='_blank'
+							rel='noopener noreferrer'
+							style={{ textDecoration: 'none', color: 'inherit' }}
+							download>
+							Download CV
+						</a>
+					</Button>
+				</BlurWrapper>
+			</ButtonContainer>
 		</LeftSection>
 	</Section>
 );
