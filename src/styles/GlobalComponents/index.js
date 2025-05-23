@@ -129,6 +129,33 @@ export const SectionSubtitle = styled.h3`
 	}
 `;
 
+export const ModalTitle = styled.h3`
+	font-weight: 500;
+	font-size: ${(props) => (props.main ? '45px' : '36px')};
+	line-height: ${(props) => (props.main ? '42px' : '26px')};
+	width: max-content;
+	margin: 20px ;
+	max-width: 100%;
+
+	padding: ${(props) => (props.main ? '58px 0 16px' : '0')};
+	background-clip: text; 
+
+	@media ${(props) => props.theme.breakpoints.md} {
+		font-size: ${(props) => (props.main ? '56px' : '48px')};
+		line-height: ${(props) => (props.main ? '56px' : '48px')};
+		padding: ${(props) => (props.main ? '40px 0 12px' : '0')};
+	}
+
+	@media ${(props) => props.theme.breakpoints.sm} {
+		font-size: 32px;
+		line-height: 40px;
+		font-size: ${(props) => (props.main ? '28px' : '32px')};
+		line-height: ${(props) => (props.main ? '32px' : '40px')};
+		padding: ${(props) => (props.main ? '16px 0 8px' : '0')};
+		max-width: 100%;
+	}
+`;
+
 export const SectionText = styled.p`
   max-width: 800px;
   font-size: 20px;
