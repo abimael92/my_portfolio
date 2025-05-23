@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 
 import { FaUserGraduate, FaPhoneAlt, FaMapMarkerAlt, FaEnvelope, FaBirthdayCake, FaUserClock } from 'react-icons/fa';
 
+import BlurWrapper from "../PrivateContent/BlurWrapper";
 
 import {
 	BulletPoint,
@@ -26,7 +27,7 @@ import {
 } from '../../styles/GlobalComponents';
 
 
-const About = () => {
+const About = ({ authenticated }) => {
 	const birthday = new Date(1992, 9, 7); // October is month 9 (zero-based index)
 	const today = new Date();
 	const age = today.getFullYear() - birthday.getFullYear() - (today < new Date(today.getFullYear(), birthday.getMonth(), birthday.getDate()) ? 1 : 0);
@@ -110,46 +111,47 @@ const About = () => {
 
 			</Container>
 
-			<Row>
-				<PersonalInfoGrid>
-					<InfoItem>
-						<FaUserGraduate />
-						<InfoTitle>Degree:</InfoTitle>
-						<InfoDetail>Bachelor's in Computer Science</InfoDetail>
-					</InfoItem>
-					<InfoItem>
-						<FaPhoneAlt />
-						<InfoTitle>Phone:</InfoTitle>
-						<InfoDetail>+52 (614) 132 54 05</InfoDetail>
-					</InfoItem>
-					<InfoItem>
-						<FaMapMarkerAlt />
-						<InfoTitle>Location:</InfoTitle>
-						<InfoDetail>Chihuahua, Chih. Mexico</InfoDetail>
-					</InfoItem>
-					<InfoItem>
-						<FaEnvelope />
-						<InfoTitle>Email:</InfoTitle>
-						<InfoDetail>abimael1992g@gmail.com</InfoDetail>
-					</InfoItem>
-					<InfoItem>
-						<FaBirthdayCake />
-						<InfoTitle>Birthday:</InfoTitle>
-						<InfoDetail>{birthday.toDateString() || 'October 7th, 1992'}</InfoDetail>
-					</InfoItem>
-					<InfoItem>
-						<FaUserClock />
-						<InfoTitle>Age:</InfoTitle>
-						<InfoDetail>{age}</InfoDetail>
-					</InfoItem>
-					<InfoItem>
-						<FaUserClock />
-						<InfoTitle>Experience:</InfoTitle>
-						<InfoDetail>{workExp}</InfoDetail>
-					</InfoItem>
-				</PersonalInfoGrid>
-			</Row>
-
+			<BlurWrapper authenticated={authenticated}>
+				<Row>
+					<PersonalInfoGrid>
+						<InfoItem>
+							<FaUserGraduate />
+							<InfoTitle>Degree:</InfoTitle>
+							<InfoDetail>Bachelor's in Computer Science</InfoDetail>
+						</InfoItem>
+						<InfoItem>
+							<FaPhoneAlt />
+							<InfoTitle>Phone:</InfoTitle>
+							<InfoDetail>+52 (614) 132 54 05</InfoDetail>
+						</InfoItem>
+						<InfoItem>
+							<FaMapMarkerAlt />
+							<InfoTitle>Location:</InfoTitle>
+							<InfoDetail>Chihuahua, Chih. Mexico</InfoDetail>
+						</InfoItem>
+						<InfoItem>
+							<FaEnvelope />
+							<InfoTitle>Email:</InfoTitle>
+							<InfoDetail>abimael1992g@gmail.com</InfoDetail>
+						</InfoItem>
+						<InfoItem>
+							<FaBirthdayCake />
+							<InfoTitle>Birthday:</InfoTitle>
+							<InfoDetail>{birthday.toDateString() || 'October 7th, 1992'}</InfoDetail>
+						</InfoItem>
+						<InfoItem>
+							<FaUserClock />
+							<InfoTitle>Age:</InfoTitle>
+							<InfoDetail>{age}</InfoDetail>
+						</InfoItem>
+						<InfoItem>
+							<FaUserClock />
+							<InfoTitle>Experience:</InfoTitle>
+							<InfoDetail>{workExp}</InfoDetail>
+						</InfoItem>
+					</PersonalInfoGrid>
+				</Row>
+			</BlurWrapper>
 
 		</Section>
 	);
