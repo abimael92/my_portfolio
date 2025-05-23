@@ -6,7 +6,8 @@ import Image from 'next/image';
 import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from 'react-icons/ai';
 import { AiOutlineLock } from 'react-icons/ai';
 
-import AccessRequestModal from '../AccessRequest/AccessRequestModal'
+import AccessRequestModal from '../AccessRequest/AccessRequestModal';
+import BlurWrapper from '../PrivateContent/BlurWrapper';
 
 import {
 	Container,
@@ -22,7 +23,7 @@ import {
 
 const remToPixels = (rem) => rem * 16;
 
-const Header = () => {
+const Header = ({ authenticated }) => {
 	const [activeSection, setActiveSection] = useState('');
 	const [hasAccess, setHasAccess] = useState(false);
 
@@ -145,15 +146,17 @@ const Header = () => {
 					</li>
 				</Div2>
 				<Div3>
-					<SocialIcons href='http://github.com/abimael92' target='_blank' rel='noopener noreferrer'>
-						<AiFillGithub size='3rem' />
-					</SocialIcons>
-					<SocialIcons href='https://www.linkedin.com/in/abimael-garcia-00580314a/' target='_blank' rel='noopener noreferrer'>
-						<AiFillLinkedin size='3rem' />
-					</SocialIcons>
-					<SocialIcons href='mailto:abimael199g@gmail.com' target='_blank' rel='noopener noreferrer'>
-						<AiOutlineMail size='3rem' />
-					</SocialIcons>
+					<BlurWrapper authenticated={authenticated}>
+						<SocialIcons href='http://github.com/abimael92' target='_blank' rel='noopener noreferrer'>
+							<AiFillGithub size='3rem' />
+						</SocialIcons>
+						<SocialIcons href='https://www.linkedin.com/in/abimael-garcia-00580314a/' target='_blank' rel='noopener noreferrer'>
+							<AiFillLinkedin size='3rem' />
+						</SocialIcons>
+						<SocialIcons href='mailto:abimael199g@gmail.com' target='_blank' rel='noopener noreferrer'>
+							<AiOutlineMail size='3rem' />
+						</SocialIcons>
+					</BlurWrapper>
 
 					{!hasAccess && (
 						<AiOutlineLock
