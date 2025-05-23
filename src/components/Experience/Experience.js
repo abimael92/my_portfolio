@@ -40,10 +40,11 @@ import {
 import { Calendar } from '@styled-icons/boxicons-regular';
 
 import { TimeLineData, EducationData } from '../../constants/constants';
+import BlurWrapper from '../PrivateContent/BlurWrapper'
 
 const TOTAL_CAROUSEL_COUNT = TimeLineData?.length;
 
-const Experience = () => {
+const Experience = ({ authenticated }) => {
 	const [activeItem, setActiveItem] = useState(0);
 	const carouselRef = useRef(null);
 
@@ -128,63 +129,65 @@ const Experience = () => {
 								<CarouselItemDot active={activeItem === index} />
 							</CarouselTimeLine>
 
-							<CarouselItem
-								index={index}
-								active={activeItem}
-								first={index === 0}
-								onClick={(e) => handleClick(e, index)}
-							>
-								<CarouselHeaderRight>
-									<CarouselItemTitle>
-										<CalendarIcon>
-											<Calendar size="24" />
-										</CalendarIcon>
-										{item.date}
-									</CarouselItemTitle>
-								</CarouselHeaderRight>
+							<BlurWrapper authenticated={authenticated}>
+								<CarouselItem
+									index={index}
+									active={activeItem}
+									first={index === 0}
+									onClick={(e) => handleClick(e, index)}
+								>
+									<CarouselHeaderRight>
+										<CarouselItemTitle>
+											<CalendarIcon>
+												<Calendar size="24" />
+											</CalendarIcon>
+											{item.date}
+										</CarouselItemTitle>
+									</CarouselHeaderRight>
 
-								<CarouselHeader>
-									<CarouselItemHeader>
-										{item.company} | {item.position}
-									</CarouselItemHeader>
-								</CarouselHeader>
+									<CarouselHeader>
+										<CarouselItemHeader>
+											{item.company} | {item.position}
+										</CarouselItemHeader>
+									</CarouselHeader>
 
-								<br />
+									<br />
 
-								{/* Styled components for Project and Industry layout */}
-								<ProjectIndustryWrapper>
-									<div>
-										<CarouselItemTextBold>Project:</CarouselItemTextBold>
-										<SectionSmallText>{item.project}</SectionSmallText>
-									</div>
-									<div>
-										<CarouselItemTextBold>Industry:</CarouselItemTextBold>
-										<SectionSmallText>{item.industry}</SectionSmallText>
-									</div>
-								</ProjectIndustryWrapper>
-								<br />
+									{/* Styled components for Project and Industry layout */}
+									<ProjectIndustryWrapper>
+										<div>
+											<CarouselItemTextBold>Project:</CarouselItemTextBold>
+											<SectionSmallText>{item.project}</SectionSmallText>
+										</div>
+										<div>
+											<CarouselItemTextBold>Industry:</CarouselItemTextBold>
+											<SectionSmallText>{item.industry}</SectionSmallText>
+										</div>
+									</ProjectIndustryWrapper>
+									<br />
 
-								<CarouselItemTextBold>Description:</CarouselItemTextBold>
-								<SectionSmallText>{item.description}</SectionSmallText>
-								<br />
+									<CarouselItemTextBold>Description:</CarouselItemTextBold>
+									<SectionSmallText>{item.description}</SectionSmallText>
+									<br />
 
-								<CarouselItemTextBold>Achievements:</CarouselItemTextBold>
-								<AchievementList>
-									{item.achievements?.map((achievement, i) => (
-										<li key={i}>{achievement}</li>
-									))}
-								</AchievementList>
-								<br />
+									<CarouselItemTextBold>Achievements:</CarouselItemTextBold>
+									<AchievementList>
+										{item.achievements?.map((achievement, i) => (
+											<li key={i}>{achievement}</li>
+										))}
+									</AchievementList>
+									<br />
 
-								{/* Styled components for Technologies */}
-								<TechnologiesWrapper>
-									{item.technologies?.map((tech, i) => (
-										<TechnologyTag key={i}>{tech}</TechnologyTag>
-									))}
-								</TechnologiesWrapper>
-								<br />
+									{/* Styled components for Technologies */}
+									<TechnologiesWrapper>
+										{item.technologies?.map((tech, i) => (
+											<TechnologyTag key={i}>{tech}</TechnologyTag>
+										))}
+									</TechnologiesWrapper>
+									<br />
 
-							</CarouselItem>
+								</CarouselItem>
+							</BlurWrapper>
 						</TimeLineContainer>
 					))}
 				</CarouselMobileScrollNode>
