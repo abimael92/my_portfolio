@@ -18,32 +18,36 @@ import {
 
 
 const Footer = ({ authenticated }) => {
-	console.log('auth', authenticated);
-
 	return (
 		<FooterWrapper>
-			<BlurWrapper authenticated={authenticated}>
-				<LinkList>
-					<LinkColumn>
-						<LinkTitle>Call</LinkTitle>
+
+			<LinkList>
+				<LinkColumn>
+					<LinkTitle>Call</LinkTitle>
+					<BlurWrapper authenticated={authenticated}>
 						<LinkItem href='tel:614-132-5405'>(614)-132-5405</LinkItem>
-					</LinkColumn>
-					<LinkColumn>
-						<LinkTitle>Email</LinkTitle>
+					</BlurWrapper>
+				</LinkColumn>
+				<LinkColumn>
+					<LinkTitle>Email</LinkTitle>
+					<BlurWrapper authenticated={authenticated}>
 						<LinkItem href='mailto:abimael1992g@gmail.com'>
 							abimael1992g@gmail.com
 						</LinkItem>
-					</LinkColumn>
-				</LinkList>
-				<SocialIconsContainer>
-					<CompanyContainer>
-						<Slogan>
-							My Portfolio
-							<br />
-							Abimael Garcia (Web Developer)
-						</Slogan>
-					</CompanyContainer>
-					<SocialContainer>
+					</BlurWrapper>
+				</LinkColumn>
+			</LinkList>
+
+			<SocialIconsContainer>
+				<CompanyContainer>
+					<Slogan>
+						My Portfolio
+						<br />
+						Abimael Garcia (Web Developer)
+					</Slogan>
+				</CompanyContainer>
+				<SocialContainer>
+					<BlurWrapper authenticated={authenticated}>
 						<SocialIcons href='http://github.com/abimael92' target='_blank' rel='noopener noreferrer'>
 							<AiFillGithub size='3rem' />
 						</SocialIcons>
@@ -53,9 +57,9 @@ const Footer = ({ authenticated }) => {
 						<SocialIcons href='mailto:abimael1992g@gmail.com' target='_blank' rel='noopener noreferrer'>
 							<AiOutlineMail size='3rem' />
 						</SocialIcons>
-					</SocialContainer>
-				</SocialIconsContainer>
-			</BlurWrapper>
+					</BlurWrapper>
+				</SocialContainer>
+			</SocialIconsContainer>
 		</FooterWrapper>
 	);
 };

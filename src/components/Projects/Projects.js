@@ -22,10 +22,12 @@ import {
 	SectionTitle,
 } from '../../styles/GlobalComponents';
 
+import BlurWrapper from '../PrivateContent/BlurWrapper'
+
 import { Projects as MyProjects } from '../../constants/constants';
 
 
-const Projects = () => (
+const Projects = ({ authenticated }) => (
 	<Section nopadding id='projects'>
 		<SectionTitle main>Projects</SectionTitle>
 		<SectionDivider />
@@ -49,12 +51,14 @@ const Projects = () => (
 							</TagList>
 							<UtilityList>
 								{project.source ? (
-									<ExternalLinks
-										href={project.source}
-										target='_blank'
-										rel='noopener noreferrer'>
-										Code
-									</ExternalLinks>
+									<BlurWrapper authenticated={authenticated}>
+										<ExternalLinks
+											href={project.source}
+											target='_blank'
+											rel='noopener noreferrer'>
+											Code
+										</ExternalLinks>
+									</BlurWrapper>
 								) : (
 									<ExternalLinks disabled>
 										Code

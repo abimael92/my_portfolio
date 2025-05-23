@@ -91,16 +91,17 @@ const About = ({ authenticated }) => {
 					I’m always on the lookout for exciting opportunities to grow, contribute, and have fun while doing it —
 					ready to turn caffeine into code!
 				</AboutSectionText>
-
 				<RightContainer>
-					<ImageNeon className="neon-medium">
-						<Image
-							src='/images/my_picture.png'
-							alt='Abimael'
-							width={remToPixels(6)}  // example size, adjust as needed
-							height={remToPixels(6)}
-						/>
-					</ImageNeon>
+					<BlurWrapper authenticated={authenticated}>
+						<ImageNeon className="neon-medium">
+							<Image
+								src='/images/my_picture.png'
+								alt='Abimael'
+								width={remToPixels(6)}  // example size, adjust as needed
+								height={remToPixels(6)}
+							/>
+						</ImageNeon>
+					</BlurWrapper>
 					<RotatingText>
 						<span className="txt-rotate" data-period="1000" data-rotate={JSON.stringify(toRotate)}>
 							{`I'm a `}
@@ -108,50 +109,61 @@ const About = ({ authenticated }) => {
 						</span>
 					</RotatingText>
 				</RightContainer>
-
 			</Container>
 
-			<BlurWrapper authenticated={authenticated}>
-				<Row>
-					<PersonalInfoGrid>
-						<InfoItem>
-							<FaUserGraduate />
-							<InfoTitle>Degree:</InfoTitle>
+			<Row>
+				<PersonalInfoGrid>
+					<InfoItem>
+						<FaUserGraduate />
+						<InfoTitle>Degree:</InfoTitle>
+						<BlurWrapper authenticated={authenticated}>
 							<InfoDetail>Bachelor's in Computer Science</InfoDetail>
-						</InfoItem>
-						<InfoItem>
-							<FaPhoneAlt />
-							<InfoTitle>Phone:</InfoTitle>
+						</BlurWrapper>
+					</InfoItem>
+					<InfoItem>
+						<FaPhoneAlt />
+						<InfoTitle>Phone:</InfoTitle>
+						<BlurWrapper authenticated={authenticated}>
 							<InfoDetail>+52 (614) 132 54 05</InfoDetail>
-						</InfoItem>
-						<InfoItem>
-							<FaMapMarkerAlt />
-							<InfoTitle>Location:</InfoTitle>
+						</BlurWrapper>
+					</InfoItem>
+					<InfoItem>
+						<FaMapMarkerAlt />
+						<InfoTitle>Location:</InfoTitle>
+						<BlurWrapper authenticated={authenticated}>
 							<InfoDetail>Chihuahua, Chih. Mexico</InfoDetail>
-						</InfoItem>
-						<InfoItem>
-							<FaEnvelope />
-							<InfoTitle>Email:</InfoTitle>
+						</BlurWrapper>
+					</InfoItem>
+					<InfoItem>
+						<FaEnvelope />
+						<InfoTitle>Email:</InfoTitle>
+						<BlurWrapper authenticated={authenticated}>
 							<InfoDetail>abimael1992g@gmail.com</InfoDetail>
-						</InfoItem>
-						<InfoItem>
-							<FaBirthdayCake />
-							<InfoTitle>Birthday:</InfoTitle>
+						</BlurWrapper>
+					</InfoItem>
+					<InfoItem>
+						<FaBirthdayCake />
+						<InfoTitle>Birthday:</InfoTitle>
+						<BlurWrapper authenticated={authenticated}>
 							<InfoDetail>{birthday.toDateString() || 'October 7th, 1992'}</InfoDetail>
-						</InfoItem>
-						<InfoItem>
-							<FaUserClock />
-							<InfoTitle>Age:</InfoTitle>
+						</BlurWrapper>
+					</InfoItem>
+					<InfoItem>
+						<FaUserClock />
+						<InfoTitle>Age:</InfoTitle>
+						<BlurWrapper authenticated={authenticated}>
 							<InfoDetail>{age}</InfoDetail>
-						</InfoItem>
-						<InfoItem>
-							<FaUserClock />
-							<InfoTitle>Experience:</InfoTitle>
+						</BlurWrapper>
+					</InfoItem>
+					<InfoItem>
+						<FaUserClock />
+						<InfoTitle>Experience:</InfoTitle>
+						<BlurWrapper authenticated={authenticated}>
 							<InfoDetail>{workExp}</InfoDetail>
-						</InfoItem>
-					</PersonalInfoGrid>
-				</Row>
-			</BlurWrapper>
+						</BlurWrapper>
+					</InfoItem>
+				</PersonalInfoGrid>
+			</Row>
 
 		</Section>
 	);

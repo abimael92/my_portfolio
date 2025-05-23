@@ -60,7 +60,7 @@ export const Div3 = styled.div`
 	align-items: center;
 	justify-content: space-around;
 	padding: 0 3rem !important;
-	//gap: 1rem;
+	gap: 1rem;
 
 	@media ${(props) => props.theme.breakpoints.sm} {
 		grid-area: 1 / 4 / 2 / 6; /* Adjust for smaller screens */

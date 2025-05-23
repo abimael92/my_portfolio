@@ -17,8 +17,9 @@ const Overlay = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width:  100%;
   height: 100%;
+  border-radius: 8px;
   cursor: not-allowed;
   background: rgba(255, 255, 255, 0.02);
   z-index: 2;
@@ -50,12 +51,12 @@ const Wrapper = styled.div`
 `;
 
 const BlurWrapper = ({ authenticated, children }) => (
-    <Wrapper>
-        <BlurDiv authenticated={authenticated}>{children}</BlurDiv>
-        <Overlay authenticated={authenticated}>
-            <Tooltip>You must unlock to view personal data</Tooltip>
-        </Overlay>
-    </Wrapper>
+  <Wrapper>
+    <BlurDiv authenticated={authenticated}>{children}</BlurDiv>
+    <Overlay>
+      <Tooltip>You must unlock to view personal data</Tooltip>
+    </Overlay>
+  </Wrapper>
 );
 
 export default BlurWrapper;
