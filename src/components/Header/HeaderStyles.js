@@ -222,3 +222,13 @@ export const PaletteChangerContainer = styled.div`
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
 	z-index: 100; /* Ensure it's above other content */
 `;
+
+export const menuButtonStyle = {
+	padding: '8px 12px',
+	background: 'none',
+	border: 'none',
+	color: 'white',
+	width: '100%',
+	textAlign: 'left',
+	cursor: 'pointer',
+};

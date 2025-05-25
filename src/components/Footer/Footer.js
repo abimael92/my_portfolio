@@ -3,6 +3,9 @@ import { AiFillGithub, AiOutlineMail, AiFillLinkedin } from 'react-icons/ai';
 
 import BlurWrapper from '../PrivateContent/BlurWrapper'
 
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
+
 import { SocialIcons } from '../Header/HeaderStyles';
 import {
 	CompanyContainer,
@@ -17,20 +20,23 @@ import {
 } from './FooterStyles';
 
 
-const Footer = ({ authenticated }) => {
+const Footer = () => {
+	const { accessToken } = useContext(AuthContext);
+
+	const hasAccess = !!accessToken;
 	return (
 		<FooterWrapper>
 
 			<LinkList>
 				<LinkColumn>
 					<LinkTitle>Call</LinkTitle>
-					<BlurWrapper authenticated={authenticated}>
+					<BlurWrapper authenticated={hasAccess}>
 						<LinkItem href='tel:614-132-5405'>(614)-132-5405</LinkItem>
 					</BlurWrapper>
 				</LinkColumn>
 				<LinkColumn>
 					<LinkTitle>Email</LinkTitle>
-					<BlurWrapper authenticated={authenticated}>
+					<BlurWrapper authenticated={hasAccess}>
 						<LinkItem href='mailto:abimael1992g@gmail.com'>
 							abimael1992g@gmail.com
 						</LinkItem>
@@ -47,7 +53,7 @@ const Footer = ({ authenticated }) => {
 					</Slogan>
 				</CompanyContainer>
 				<SocialContainer>
-					<BlurWrapper authenticated={authenticated}>
+					<BlurWrapper authenticated={hasAccess}>
 						<SocialIcons href='http://github.com/abimael92' target='_blank' rel='noopener noreferrer'>
 							<AiFillGithub size='3rem' />
 						</SocialIcons>

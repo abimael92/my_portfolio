@@ -1,4 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
+
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
+
 import {
 	AchievementList,
 	ArrowButton,
@@ -44,10 +48,12 @@ import BlurWrapper from '../PrivateContent/BlurWrapper'
 
 const TOTAL_CAROUSEL_COUNT = TimeLineData?.length;
 
-const Experience = ({ authenticated }) => {
+const Experience = () => {
 	const [activeItem, setActiveItem] = useState(0);
 	const carouselRef = useRef(null);
 
+	const { accessToken } = useContext(AuthContext);
+	const hasAccess = !!accessToken;
 
 	const scroll = (node, index) => {
 		if (node) {
@@ -129,7 +135,7 @@ const Experience = ({ authenticated }) => {
 								<CarouselItemDot active={activeItem === index} />
 							</CarouselTimeLine>
 
-							<BlurWrapper authenticated={authenticated}>
+							<BlurWrapper authenticated={hasAccess}>
 								<CarouselItem
 									index={index}
 									active={activeItem}
