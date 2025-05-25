@@ -13,6 +13,8 @@ export const Boxes = styled.div`
 	}
 
 	@media ${(props) => props.theme.breakpoints.sm} {
+		grid-template-columns: repeat(2, 1fr);
+
 		max-width: 500px;
 		margin: 24px auto;
 	}
@@ -26,8 +28,6 @@ export const BoxNum = styled.h5`
 	display: flex;
 	align-items: center;
 
-	line-height: 22px;
-	letter-spacing: 0.01em;
 	color: #ffffff;
 	/* box-shadow: 0px 4px 10px #007bff; // Accent color */
 
@@ -40,11 +40,9 @@ export const BoxNum = styled.h5`
 
 	@media ${(props) => props.theme.breakpoints.md} {
 		font-size: 18px;
-		line-height: 18px;
 	}
 	@media ${(props) => props.theme.breakpoints.sm} {
-		font-size: 14px;
-		line-height: 14px;
+		font-size: 20px;
 	}
 `;
 
@@ -56,6 +54,22 @@ export const Box = styled.div`
 	padding: 1.5rem;
 	box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.5); 
 	transition: transform 0.3s ease;
+
+
+
+	margin: 0 0.5rem;
+
+  overflow-y: auto;
+  box-sizing: border-box;
+
+  /* Scrollbar styling */
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #d0bb57;
+    border-radius: 3px;
+  }
 
 	&:hover {
 	transform: translateY(-5px); // Lift effect on hover
@@ -71,12 +85,10 @@ export const Box = styled.div`
 	}
 
 	@media ${(props) => props.theme.breakpoints.sm} {
-		height: 110px;
+		height: 210px;
 		padding: 12px;
 
-		&:nth-child(2n) {
-			grid-row: 2;
-		}
+
 	}
 `;
 
@@ -87,19 +99,15 @@ export const BoxText = styled.p`
 	font-style: normal;
 	font-weight: normal;
 	font-size: 2rem;
-	line-height: 1.6;
 
-	letter-spacing: 0.02em;
 	color: rgba(255, 255, 255, 0.75);
 
 	@media ${(props) => props.theme.breakpoints.md} {
 		font-size: 12px;
-		line-height: 12px;
 	}
 
 	@media ${(props) => props.theme.breakpoints.sm} {
-		font-size: 10px;
-		line-height: 10px;
+		font-size: 18px;
 	}
 `;
 
