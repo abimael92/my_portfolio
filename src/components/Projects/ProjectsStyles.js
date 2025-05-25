@@ -13,7 +13,8 @@ export const GridContainer = styled.section`
   @media ${(props) => props.theme.breakpoints.sm} {
     display: flex;
     flex-direction: column;
-    padding: 1rem 0.5rem;
+    padding:  0.5rem 0;
+    margin: 0;
   }
 `;
 
@@ -35,6 +36,11 @@ export const BlogCard = styled.div`
     transform: translateY(-8px);
   	box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.8); 
   }
+
+  @media ${(props) => props.theme.breakpoints.sm} {
+    width: 340px;
+    height: 545px; 
+	}
 `;
 
 /* Img: fixed height with rounded top corners */
