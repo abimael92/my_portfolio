@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import Acomplishments from '../components/Achievements/Achievements';
+import Achievements from '../components/Achievements/Achievements';
 import BgAnimation from '../components/BackgrooundAnimation/BackgroundAnimation';
 import Hero from '../components/Hero/Hero';
 import Projects from '../components/Projects/Projects';
@@ -22,7 +22,7 @@ const Home = () => {
 			<Technologies />
 			<Experience />
 			<Projects />
-			<Acomplishments />
+			<Achievements />
 		</Layout>
 	);
 };
