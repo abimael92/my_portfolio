@@ -3,7 +3,6 @@ import styled from 'styled-components';
 
 export const TimeLineContainer = styled.div`
   top: 0;
-  transform: translateX(-50%);
   z-index: 2;
   height: auto;
   min-width: 80%;
@@ -15,20 +14,29 @@ export const TimeLineContainer = styled.div`
   align-items: center;
   margin: 0.5rem 0;
   padding: 2rem;
+
+  @media (max-width: 768px) {
+  padding: 1rem;
+  min-width: 100%;
+}
+
 `;
 
 export const CarouselContainer = styled.div`
   display: flex;
-  overflow-x: scroll;
+  overflow-x: auto;
   scroll-behavior: smooth;
-  padding: 5rem;
-  margin: 0;
-  position: relative;
-  width: 90%;
+  padding: 2rem 0;
+  margin: 0 auto;
+  width: 100%;
   box-sizing: border-box;
-  
+
+  @media (max-width: 768px) {
+    padding: 1rem 0;
+  }
+
   &::-webkit-scrollbar {
-    display: none; /* Hide scrollbar for better aesthetics */
+    display: none;
   }
 `;
 
@@ -63,6 +71,11 @@ export const CarouselButton = styled.button`
 		outline: none;
 		border-radius: 30px;
 	}
+
+	@media (max-width: 480px) {
+  transform: scale(1.2);
+}
+
 `;
 export const ArrowButton = styled.button`
 	box-sizing: border-box;
@@ -83,6 +96,10 @@ export const ArrowButton = styled.button`
 	&:focus {
 		outline: none;
 	}
+
+	@media (max-width: 480px) {
+  transform: scale(1.2);
+}
 `;
 
 export const CarouselButtonDot = styled.div`
@@ -92,12 +109,20 @@ export const CarouselButtonDot = styled.div`
 	width: 8px;
 	height: 8px;
 `;
+
 export const CarouselMobileScrollNode = styled.div`
-	display: flex;
-	min-width: 100%;
-	scroll-snap-type: x mandatory;
-	justify-content: space-between;
+  display: flex;
+  min-width: 100%;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 1rem;
+  justify-content: start;
+  gap: 1rem;
+
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+  }
 `;
+
 
 export const CarouselItem = styled.div`
   min-width: 80%;
@@ -105,33 +130,25 @@ export const CarouselItem = styled.div`
   flex: 0 0 80%;
   display: flex;
   flex-direction: column;
-  padding-left: 1rem;
-  margin-left: 60rem;
-  margin-right: 12rem;
-  margin-top: 5rem;
- 
   background-color: rgba(0, 0, 0, 0.1);
   border-radius: 10px;
-  padding: 1rem 2.5rem;
+  padding: 1rem 1.5rem;
   z-index: ${(props) => (props.active === props.index ? 2 : 1)};
   opacity: ${(props) => (props.active === props.index ? 1 : 0.5)};
   transform: ${(props) =>
-		props.active === props.index ? 'scale(1.1)' : 'scale(1)'};
+		props.active === props.index ? 'scale(1.05)' : 'scale(1)'};
   transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
-
-   /* Apply box-shadow only when active */
-   box-shadow: ${(props) =>
+  box-shadow: ${(props) =>
 		props.active === props.index
-			? '0 0 15px 5px rgba(255, 255, 255, 0.8) !important'
+			? '0 0 15px rgba(255,255,255,0.3)'
 			: 'none'};
+  margin: 1rem;
 
-  &:hover, &:focus {
-    transform: scale(1.05);
-  
-  }
-
-  &:active {
-    transform: scale(1.05);
+  @media (max-width: 768px) {
+    min-width: 90%;
+    flex: 0 0 90%;
+    margin: 0.5rem;
+    padding: 1rem;
   }
 `;
 
@@ -312,25 +329,28 @@ export const EducationItem = styled.div`
 	align-self: center;
 
 	box-shadow: 0 0 10px rgba(255, 255, 255, 1);
+
+	@media (max-width: 768px) {
+	width: 100%;
+	padding: 0.8rem;
+}
+
 `;
 
 export const EducationItemTitle = styled.h4`
 	font-weight: bold;
 	font-size: 16px;
-	line-height: 24px;
 	color: #ffffff;
 	text-align: center;
 	margin: 10px auto 0;
 
 	@media ${(props) => props.theme.breakpoints.sm} {
-		font-size: 14px;
-		line-height: 20px;
+		font-size: 18px;
 	}
 `;
 
 export const EducationItemTextBold = styled.p`
 	font-size: 20px;
-	line-height: 22px;
 	letter-spacing: 0.02em;
 	color: rgba(255, 255, 255, 0.75);
 	text-align: center;
@@ -340,12 +360,10 @@ export const EducationItemTextBold = styled.p`
 	font-weight: bold;
 
 	@media ${(props) => props.theme.breakpoints.md} {
-		font-size: 12px;
-		line-height: 18px;
+		font-size: 22px;
 	}
 	@media ${(props) => props.theme.breakpoints.sm} {
-		font-size: 10px;
-		line-height: 16px;
+		font-size: 25px;
 	}
 `;
 
@@ -365,7 +383,6 @@ export const EducationHeaderRight = styled.div`
 export const EducationItemText = styled.p`
 	align-items: center;
 	font-size: 18px;
-	line-height: 22px;
 	letter-spacing: 0.02em;
 	padding: 1rem 0;
 	color: rgba(255, 255, 255, 0.75);
@@ -374,12 +391,10 @@ export const EducationItemText = styled.p`
 	margin: 10px auto 0;
 
 	@media ${(props) => props.theme.breakpoints.md} {
-		font-size: 14px;
-		line-height: 18px;
+		font-size: 20px;
 	}
 	@media ${(props) => props.theme.breakpoints.sm} {
-		font-size: 12px;
-		line-height: 16px;
+		font-size: 25px;
 	}
 `;
 

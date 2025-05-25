@@ -1,8 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
-
 import { useContext } from 'react';
 import { AuthContext } from '../../context/AuthContext';
-
 import {
 	AchievementList,
 	ArrowButton,
@@ -32,7 +30,6 @@ import {
 	TechnologyTag,
 	ProjectIndustryWrapper,
 } from './ExperienceStyles';
-
 import {
 	Section,
 	SectionDivider,
@@ -40,93 +37,58 @@ import {
 	SectionTitle2,
 	SectionSmallText,
 } from '../../styles/GlobalComponents';
-
 import { Calendar } from '@styled-icons/boxicons-regular';
-
-// import { TimeLineData, EducationData } from '../../constants/constants';
 import { useEducation, useTimeline } from '../../hooks/usePortfolioData';
-
-
-import BlurWrapper from '../PrivateContent/BlurWrapper'
-
-// const TOTAL_CAROUSEL_COUNT = timeline?.length;
+import BlurWrapper from '../PrivateContent/BlurWrapper';
 
 const Experience = () => {
 	const [activeItem, setActiveItem] = useState(0);
 	const carouselRef = useRef(null);
-
 	const { accessToken } = useContext(AuthContext);
 	const hasAccess = !!accessToken;
-
-	const { education, eduloading } = useEducation();
-	const { timeline, timeloading } = useTimeline();
-
-	console.log(timeline);
-
-
-	if (eduloading) return <div>education projects...</div>;
-	if (timeloading) return <div>timeline projects...</div>;
+	const { education } = useEducation();
+	const { timeline } = useTimeline();
 
 	const scroll = (node, index) => {
-		if (node) {
-			const itemWidth = node.scrollWidth / timeline.length; // Width of each item
-			const containerWidth = node.offsetWidth; // Width of the container
-			const centerOffset = (itemWidth * index) - (containerWidth / 2) + (itemWidth / 2);
-
-			const scrollLeft = Math.max(0, Math.min(centerOffset, node.scrollWidth - containerWidth));
-
-			node.scrollTo({ left: scrollLeft, behavior: 'smooth' });
-		}
+		if (!node) return;
+		const itemWidth = node.scrollWidth / timeline.length;
+		const containerWidth = node.offsetWidth;
+		const centerOffset = (itemWidth * index) - (containerWidth / 2) + (itemWidth / 2);
+		const scrollLeft = Math.max(0, Math.min(centerOffset, node.scrollWidth - containerWidth));
+		node.scrollTo({ left: scrollLeft, behavior: 'smooth' });
 	};
 
-	function handleClick(e, index) {
+	const handleClick = (e, index) => {
 		setActiveItem(index);
-
-		const itemWidth = carouselRef.current.clientWidth / 3;
-		const scrollPosition = itemWidth * index - (carouselRef.current.clientWidth / 2 - itemWidth / 2);
-
-		carouselRef.current.scrollTo({
-			left: scrollPosition,
-			behavior: 'smooth',
-		});
-	}
+		scroll(carouselRef.current, index);
+	};
 
 	const handleScroll = () => {
 		if (carouselRef.current) {
 			const index = Math.round(
-				(carouselRef.current.scrollLeft /
-					(carouselRef.current.scrollWidth / timeline?.length))
+				(carouselRef.current.scrollLeft / carouselRef.current.scrollWidth) * timeline.length
 			);
 			setActiveItem(index);
 		}
 	};
 
 	useEffect(() => {
-		const handleResize = () => {
-			scroll(carouselRef.current, 0);
-		};
-
+		const handleResize = () => scroll(carouselRef.current, activeItem);
 		window.addEventListener('resize', handleResize);
-		return () => {
-			window.removeEventListener('resize', handleResize);
-		};
-	}, []);
+		return () => window.removeEventListener('resize', handleResize);
+	}, [activeItem]);
 
-	const handleBack = () => {
-		if (activeItem > 0) {
-			const newActiveItem = activeItem - 1;
-			setActiveItem(newActiveItem);
-			scroll(carouselRef.current, newActiveItem);
-		}
-	};
+	const handleBack = () => activeItem > 0 && setActiveItem(prev => {
+		const newActive = prev - 1;
+		scroll(carouselRef.current, newActive);
+		return newActive;
+	});
 
-	const handleForward = () => {
-		if (activeItem < timeline.length - 1) {
-			const newActiveItem = activeItem + 1;
-			setActiveItem(newActiveItem);
-			scroll(carouselRef.current, newActiveItem);
-		}
-	};
+	const handleForward = () => activeItem < timeline.length - 1 && setActiveItem(prev => {
+		const newActive = prev + 1;
+		scroll(carouselRef.current, newActive);
+		return newActive;
+	});
 
 	return (
 		<Section id="experience">
@@ -139,21 +101,12 @@ const Experience = () => {
 						<TimeLineContainer key={index} index={index} active={activeItem}>
 							<TimeLineItemTitle>{item.year}</TimeLineItemTitle>
 							<CarouselTimeLine>
-								<CarouselLine
-									active={activeItem === index}
-									isFirst={index === 0}
-									isLast={index === timeline.length - 1}
-								/>
+								<CarouselLine active={activeItem === index} isFirst={index === 0} isLast={index === timeline.length - 1} />
 								<CarouselItemDot active={activeItem === index} />
 							</CarouselTimeLine>
 
 							<BlurWrapper authenticated={hasAccess}>
-								<CarouselItem
-									index={index}
-									active={activeItem}
-									first={index === 0}
-									onClick={(e) => handleClick(e, index)}
-								>
+								<CarouselItem index={index} active={activeItem} onClick={(e) => handleClick(e, index)}>
 									<CarouselHeaderRight>
 										<CarouselItemTitle>
 											<CalendarIcon>
@@ -169,9 +122,6 @@ const Experience = () => {
 										</CarouselItemHeader>
 									</CarouselHeader>
 
-									<br />
-
-									{/* Styled components for Project and Industry layout */}
 									<ProjectIndustryWrapper>
 										<div>
 											<CarouselItemTextBold>Project:</CarouselItemTextBold>
@@ -182,11 +132,9 @@ const Experience = () => {
 											<SectionSmallText>{item.industry}</SectionSmallText>
 										</div>
 									</ProjectIndustryWrapper>
-									<br />
 
 									<CarouselItemTextBold>Description:</CarouselItemTextBold>
 									<SectionSmallText>{item.description}</SectionSmallText>
-									<br />
 
 									<CarouselItemTextBold>Achievements:</CarouselItemTextBold>
 									<AchievementList>
@@ -194,16 +142,12 @@ const Experience = () => {
 											<li key={i}>{achievement}</li>
 										))}
 									</AchievementList>
-									<br />
 
-									{/* Styled components for Technologies */}
 									<TechnologiesWrapper>
 										{item.technologies?.map((tech, i) => (
 											<TechnologyTag key={i}>{tech}</TechnologyTag>
 										))}
 									</TechnologiesWrapper>
-									<br />
-
 								</CarouselItem>
 							</BlurWrapper>
 						</TimeLineContainer>
@@ -213,16 +157,8 @@ const Experience = () => {
 
 			<CarouselButtons>
 				<ArrowButton onClick={handleBack}>&lt;</ArrowButton>
-				{timeline?.map((item, index) => (
-					<CarouselButton
-						key={index}
-						index={index}
-						active={activeItem}
-						onClick={() => {
-							setActiveItem(index);
-							scroll(carouselRef.current, index);
-						}}
-					>
+				{timeline?.map((_, index) => (
+					<CarouselButton key={index} index={index} active={activeItem} onClick={() => handleClick(null, index)}>
 						<CarouselButtonDot active={activeItem === index} />
 					</CarouselButton>
 				))}
