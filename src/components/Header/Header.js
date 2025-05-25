@@ -3,10 +3,14 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
+
 import { AiFillGithub, AiFillLinkedin, AiOutlineMail } from 'react-icons/ai';
 import { AiOutlineLock } from 'react-icons/ai';
 
 import AccessRequestModal from '../AccessRequest/AccessRequestModal';
+import LoginTokenModal from '../Login/LoginTokenModal';
 import BlurWrapper from '../PrivateContent/BlurWrapper';
 
 import {
@@ -15,6 +19,7 @@ import {
 	Div2,
 	Div3,
 	UserLogin,
+	menuButtonStyle,
 	NavLink,
 	SocialIcons,
 	Span,
@@ -23,11 +28,15 @@ import {
 
 const remToPixels = (rem) => rem * 16;
 
-const Header = ({ authenticated }) => {
-	const [activeSection, setActiveSection] = useState('');
-	const [hasAccess, setHasAccess] = useState(false);
+const Header = () => {
 
-	const [showUserLogin, setShowUserLogin] = useState(false);
+	const { accessToken } = useContext(AuthContext);
+
+	const hasAccess = !!accessToken;
+
+	const [activeSection, setActiveSection] = useState('');
+	const [showUserMenu, setShowUserMenu] = useState(false);
+	const [showLoginModal, setShowLoginModal] = useState(false);
 	const [showAccessModal, setShowAccessModal] = useState(false);
 
 	useEffect(() => {
@@ -35,11 +44,6 @@ const Header = ({ authenticated }) => {
 		return () => window.removeEventListener('scroll', handleScroll);
 	}, []);
 
-	useEffect(() => {
-		// Check localStorage for access token flag
-		const access = localStorage.getItem('access_granted');
-		setHasAccess(!!access);
-	}, []);
 
 	const handleScroll = () => {
 		const sections = [
@@ -146,7 +150,7 @@ const Header = ({ authenticated }) => {
 					</li>
 				</Div2>
 				<Div3>
-					<BlurWrapper authenticated={authenticated}>
+					<BlurWrapper authenticated={hasAccess}>
 						<SocialIcons href='http://github.com/abimael92' target='_blank' rel='noopener noreferrer'>
 							<AiFillGithub size='3rem' />
 						</SocialIcons>
@@ -159,39 +163,56 @@ const Header = ({ authenticated }) => {
 					</BlurWrapper>
 
 					{!hasAccess && (
-						<AiOutlineLock
-							size={28}
-							style={{ cursor: 'pointer', color: 'white' }}
-							title="Request Access / Login Requests"
-							onClick={() => setShowUserLogin(!showUserLogin)}
-						/>
+						<div style={{ position: 'relative' }}>
+							<AiOutlineLock
+								size={28}
+								style={{ cursor: 'pointer', color: 'white' }}
+								title="Request Access / Login"
+								onClick={() => setShowUserMenu(prev => !prev)}
+							/>
+
+							{showUserMenu && (
+								<div style={{
+									position: 'absolute',
+									top: '32px',
+									right: 0,
+									background: '#222',
+									border: '1px solid #444',
+									borderRadius: '4px',
+									zIndex: 1000,
+								}}>
+									<button
+										style={menuButtonStyle}
+										onClick={() => {
+											setShowLoginModal(true);
+											setShowUserMenu(false);
+										}}
+									>
+										Enter Token
+									</button>
+									<button
+										style={menuButtonStyle}
+										onClick={() => {
+											setShowAccessModal(true);
+											setShowUserMenu(false);
+										}}
+									>
+										Request Access
+									</button>
+								</div>
+							)}
+						</div>
 					)}
-
-					{showUserLogin && (
-						<UserLogin>
-							<button
-								onClick={() => {
-									setShowAccessModal(true);
-									setShowUserLogin(false);
-								}}
-								style={{ width: '100%', padding: '0.5rem', marginBottom: '0.5rem', cursor: 'pointer' }}
-							>
-								Request Access
-							</button>
-
-							<div>
-								<strong>Login Requests:</strong>
-
-							</div>
-						</UserLogin>
-					)}
-
 
 				</Div3>
 			</Container>
 
 			{showAccessModal && (
 				<AccessRequestModal onClose={() => setShowAccessModal(false)} />
+			)}
+
+			{showLoginModal && (
+				<LoginTokenModal onClose={() => setShowLoginModal(false)} />
 			)}
 		</>
 	);

@@ -4,6 +4,9 @@ import { FaUserGraduate, FaPhoneAlt, FaMapMarkerAlt, FaEnvelope, FaBirthdayCake,
 
 import BlurWrapper from "../PrivateContent/BlurWrapper";
 
+import { useContext } from 'react';
+import { AuthContext } from '../../context/AuthContext';
+
 import {
 	BulletPoint,
 	Container,
@@ -27,7 +30,12 @@ import {
 } from '../../styles/GlobalComponents';
 
 
-const About = ({ authenticated }) => {
+const About = () => {
+
+	const { accessToken } = useContext(AuthContext);
+	const authenticated = !!accessToken;
+	// const hasAccess = !!accessToken;
+
 	const birthday = new Date(1992, 9, 7); // October is month 9 (zero-based index)
 	const today = new Date();
 	const age = today.getFullYear() - birthday.getFullYear() - (today < new Date(today.getFullYear(), birthday.getMonth(), birthday.getDate()) ? 1 : 0);
