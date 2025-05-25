@@ -105,8 +105,8 @@ const About = () => {
 							<Image
 								src='/images/my_picture.png'
 								alt='Abimael'
-								width={remToPixels(6)}  // example size, adjust as needed
-								height={remToPixels(6)}
+							// width="6rem"
+							// height="6rem"
 							/>
 						</ImageNeon>
 					</BlurWrapper>

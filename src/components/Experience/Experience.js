@@ -69,7 +69,7 @@ const Experience = () => {
 
 	const scroll = (node, index) => {
 		if (node) {
-			const itemWidth = node.scrollWidth / TimeLineData.length; // Width of each item
+			const itemWidth = node.scrollWidth / timeline.length; // Width of each item
 			const containerWidth = node.offsetWidth; // Width of the container
 			const centerOffset = (itemWidth * index) - (containerWidth / 2) + (itemWidth / 2);
 
@@ -121,7 +121,7 @@ const Experience = () => {
 	};
 
 	const handleForward = () => {
-		if (activeItem < TimeLineData.length - 1) {
+		if (activeItem < timeline.length - 1) {
 			const newActiveItem = activeItem + 1;
 			setActiveItem(newActiveItem);
 			scroll(carouselRef.current, newActiveItem);
