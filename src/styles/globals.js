@@ -32,6 +32,13 @@ const GlobalStyles = createGlobalStyle`
     list-style: none;
   }
 
+  @media (max-width: 768px) {
+  .mobile-menu-button {
+    display: block !important;
+  }
+}
+
+
 `;
 
 export default GlobalStyles;
