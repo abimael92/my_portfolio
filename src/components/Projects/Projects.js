@@ -24,7 +24,8 @@ import {
 
 import BlurWrapper from '../PrivateContent/BlurWrapper';
 
-import { Projects as MyProjects } from '../../constants/constants';
+// import { Projects as MyProjects } from '../../constants/constants';
+import { useProjects } from '../../hooks/usePortfolioData';
 
 import { AuthContext } from '../../context/AuthContext';
 
@@ -32,13 +33,18 @@ const Projects = () => {
 	const { accessToken } = useContext(AuthContext);
 	const authenticated = !!accessToken;
 
+	const { projects, loading } = useProjects();
+
+
+	if (loading) return <div>Loading projects...</div>;
+
 	return (
 		<Section nopadding id='projects'>
 			<SectionTitle main>Projects</SectionTitle>
 			<SectionDivider />
 
 			<GridContainer>
-				{MyProjects.map((project, index) => {
+				{projects.map((project, index) => {
 					return (
 						<BlogCard key={index}>
 							<Content>
