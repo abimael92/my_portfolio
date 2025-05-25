@@ -75,7 +75,7 @@ export const InfoTitle = styled.h4`
 	font-size: 18.5px;
 
 	@media ${(props) => props.theme.breakpoints.sm} {
-		font-size: 16px;
+		font-size: 20px;
 	}
 `;
 
@@ -87,7 +87,7 @@ export const InfoDetail = styled.span`
 	word-break: break-word;
 
 	@media ${(props) => props.theme.breakpoints.sm} {
-		font-size: 14px;
+		font-size: 17.5px;
 		padding-left: 2px;
 	}
 `;
@@ -95,10 +95,10 @@ export const InfoDetail = styled.span`
 export const Row = styled.div`
 	display: flex;
 	flex-wrap: wrap;
-	margin: -12px;
+	gap: 24px;
 
 	@media ${(props) => props.theme.breakpoints.sm} {
-		margin: -8px;
+		gap: 16px;
 	}
 `;
 
@@ -113,7 +113,7 @@ export const RotatingText = styled.h2`
 	}
 
 	@media ${(props) => props.theme.breakpoints.sm} {
-		font-size: 1.5rem;
+		font-size: 3rem;
 		text-align: center;
 		margin-top: 0.75rem;
 		min-width: auto;
@@ -148,13 +148,15 @@ export const RightContainer = styled.div`
 	justify-content: center;
 	padding: 1rem;
 	gap: 1.5rem;
-	width: 100%;
+
+	width: 50%;
 
 	@media ${(props) => props.theme.breakpoints.md} {
 		width: auto;
 	}
 
 	@media ${(props) => props.theme.breakpoints.sm} {
+		width: 100%;
 		padding: 1rem 0;
 	}
 `;
@@ -169,7 +171,7 @@ export const SectionText = styled.div`
 `;
 
 export const AboutSectionText = styled(GlobalSectionText)`
-	max-width: 65%;
+	width: 50%;
 	flex: 1;
 	font-size: 24px;
 	line-height: 40px;
@@ -179,7 +181,6 @@ export const AboutSectionText = styled(GlobalSectionText)`
 	color: rgba(255, 255, 255, 0.5);
 
 	@media ${(props) => props.theme.breakpoints.md} {
-		max-width: 670px;
 		font-size: 20px;
 		line-height: 32px;
 		padding-bottom: 1.2rem;
@@ -187,7 +188,7 @@ export const AboutSectionText = styled(GlobalSectionText)`
 	}
 
 	@media ${(props) => props.theme.breakpoints.sm} {
-		max-width: 100%;
+		width: 100%;
 		font-size: 16px;
 		line-height: 24px;
 		padding-bottom: 0.8rem;
@@ -197,8 +198,8 @@ export const AboutSectionText = styled(GlobalSectionText)`
 
 export const Image = styled.img`
 	display: block;
-	width: ${(props) => props.width || '16rem'};
-	height: ${(props) => props.height || '16rem'};
+	width: ${(props) => props.width || '25rem'};
+	height: ${(props) => props.height || '25rem'};
 	object-fit: cover;
 	border-radius: 50%;
 	border: 4px solid rgba(255, 255, 255, 0.2);
