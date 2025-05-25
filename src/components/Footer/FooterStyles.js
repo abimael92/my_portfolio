@@ -9,14 +9,13 @@ export const FooterWrapper = styled.section`
 
 
   @media ${props => props.theme.breakpoints.sm} {
-    padding: 0 16px 48px;
-    width: calc(100vw - 32px);
+    padding: 0 1rem 2rem;
+    width: calc(100vw - 2rem);
   }
 `
 
 export const LinkItem = styled.a`
 	font-size: 18px;
-	line-height: 30px;
 	color: rgba(255, 255, 255, 0.75);
 	margin-bottom: 16px;
 	transition: .3s ease;
@@ -30,13 +29,11 @@ export const LinkItem = styled.a`
 
 	@media ${props => props.theme.breakpoints.md} {
 		font-size: 16px;
-		line-height: 28px;
 		display: flex;
 	}
 
 	@media ${props => props.theme.breakpoints.sm} {
-		font-size: 8px;
-		line-height: 14px;
+		font-size: 14px;
 		margin-bottom: 8px;
 		display: flex;
 		align-items: center;
@@ -75,7 +72,7 @@ export const CompanyContainer = styled.div`
 	@media ${props => props.theme.breakpoints.sm}{
 		display: flex;
 		flex-direction: column;
-		margin: 0 0 32px;
+		margin: 0 0 1rem;
 		align-items: center;
 	}
 `
@@ -96,7 +93,7 @@ export const Slogan = styled.p`
 
 	@media ${props => props.theme.breakpoints.sm}{
 		line-height: 22px;
-		font-size: 14px;
+		font-size: 15px;
 		min-width: 100px;
 	}
 `
@@ -146,14 +143,12 @@ export const LinkTitle = styled.h4`
 	font-style: normal;
 	font-weight: 600;
 	font-size: 12px;
-	line-height: 24px;
 	text-transform: uppercase;
 	color: rgba(255, 255, 255, 0.4);
 	margin-bottom: 16px;
 
 	@media ${props => props.theme.breakpoints.sm} {
-		font-size: 10px;
-		line-height: 12px;
+		font-size: 16.5px;
 		margin-bottom: 8px;
 	}
 `
