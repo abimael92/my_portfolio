@@ -50,13 +50,17 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
-const BlurWrapper = ({ authenticated, children }) => (
-  <Wrapper>
-    <BlurDiv authenticated={authenticated}>{children}</BlurDiv>
-    <Overlay>
-      <Tooltip>You must unlock to view personal data</Tooltip>
-    </Overlay>
-  </Wrapper>
-);
+const BlurWrapper = ({ authenticated, children }) =>
+  authenticated ? (
+    <>{children}</>
+  ) : (
+    <Wrapper>
+      <BlurDiv>{children}</BlurDiv>
+      <Overlay>
+        <Tooltip>You must unlock to view personal data</Tooltip>
+      </Overlay>
+    </Wrapper>
+  );
+
 
 export default BlurWrapper;
