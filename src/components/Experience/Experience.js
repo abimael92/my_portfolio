@@ -43,10 +43,13 @@ import {
 
 import { Calendar } from '@styled-icons/boxicons-regular';
 
-import { TimeLineData, EducationData } from '../../constants/constants';
+// import { TimeLineData, EducationData } from '../../constants/constants';
+import { useEducation, useTimeline } from '../../hooks/usePortfolioData';
+
+
 import BlurWrapper from '../PrivateContent/BlurWrapper'
 
-const TOTAL_CAROUSEL_COUNT = TimeLineData?.length;
+// const TOTAL_CAROUSEL_COUNT = timeline?.length;
 
 const Experience = () => {
 	const [activeItem, setActiveItem] = useState(0);
@@ -54,6 +57,15 @@ const Experience = () => {
 
 	const { accessToken } = useContext(AuthContext);
 	const hasAccess = !!accessToken;
+
+	const { education, eduloading } = useEducation();
+	const { timeline, timeloading } = useTimeline();
+
+	console.log(timeline);
+
+
+	if (eduloading) return <div>education projects...</div>;
+	if (timeloading) return <div>timeline projects...</div>;
 
 	const scroll = (node, index) => {
 		if (node) {
@@ -83,7 +95,7 @@ const Experience = () => {
 		if (carouselRef.current) {
 			const index = Math.round(
 				(carouselRef.current.scrollLeft /
-					(carouselRef.current.scrollWidth / TOTAL_CAROUSEL_COUNT))
+					(carouselRef.current.scrollWidth / timeline?.length))
 			);
 			setActiveItem(index);
 		}
@@ -123,14 +135,14 @@ const Experience = () => {
 
 			<CarouselContainer ref={carouselRef} onScroll={handleScroll}>
 				<CarouselMobileScrollNode>
-					{TimeLineData?.map((item, index) => (
+					{timeline?.map((item, index) => (
 						<TimeLineContainer key={index} index={index} active={activeItem}>
 							<TimeLineItemTitle>{item.year}</TimeLineItemTitle>
 							<CarouselTimeLine>
 								<CarouselLine
 									active={activeItem === index}
 									isFirst={index === 0}
-									isLast={index === TimeLineData.length - 1}
+									isLast={index === timeline.length - 1}
 								/>
 								<CarouselItemDot active={activeItem === index} />
 							</CarouselTimeLine>
@@ -201,7 +213,7 @@ const Experience = () => {
 
 			<CarouselButtons>
 				<ArrowButton onClick={handleBack}>&lt;</ArrowButton>
-				{TimeLineData?.map((item, index) => (
+				{timeline?.map((item, index) => (
 					<CarouselButton
 						key={index}
 						index={index}
@@ -220,7 +232,7 @@ const Experience = () => {
 			<SectionTitle2>Education</SectionTitle2>
 			<SectionDivider />
 			<EducationItem>
-				{EducationData?.map((item, index) => (
+				{education?.map((item, index) => (
 					<React.Fragment key={index}>
 						<EducationHeaderRight>
 							<EducationItemTitle>
