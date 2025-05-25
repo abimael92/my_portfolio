@@ -43,6 +43,8 @@ const skillsData = [
 	{ name: 'Three.js', percent: 40 },
 ];
 
+import { useSkills } from '../../hooks/usePortfolioData';
+
 
 const SkillBar = ({ name, percent }) => {
 	const [fill, setFill] = useState(0);
@@ -79,79 +81,85 @@ const SkillBar = ({ name, percent }) => {
 };
 
 
-const Technologies = () => (
-	<Section id='tech'>
-		<SectionTitle>Technologies</SectionTitle>
-		<SectionDivider />
-		<SectionText>
-			I specialize in full-stack development, creating performant and user-centric web applications.
-			My expertise spans modern front-end frameworks, scalable back-end architectures, and user-focused design,
-			enabling me to deliver seamless digital experiences that solve real-world problems.
-		</SectionText>
+const Technologies = () => {
+	const { skills, loading } = useSkills();
 
-		<List>
-			<ListItem>
-				<picture><DiReact size="3rem" /></picture>
-				<ListContainer>
-					<ListTitle>Frontend</ListTitle>
-					<ListParagraph>
-						Built fast, responsive UIs with React and TypeScript, focusing on accessibility and real-world user experience.
-					</ListParagraph>
-				</ListContainer>
-			</ListItem>
+	if (loading) return <div>Loading skills...</div>;
 
-			<ListItem>
-				<picture><DiFirebase size="3rem" /></picture>
-				<ListContainer>
-					<ListTitle>Backend</ListTitle>
-					<ListParagraph>
-						Developed scalable backends using Node.js with MongoDB and SQL, implementing authentication and secure data flows.
-					</ListParagraph>
-				</ListContainer>
-			</ListItem>
+	return (
+		<Section id='tech'>
+			<SectionTitle>Technologies</SectionTitle>
+			<SectionDivider />
+			<SectionText>
+				I specialize in full-stack development, creating performant and user-centric web applications.
+				My expertise spans modern front-end frameworks, scalable back-end architectures, and user-focused design,
+				enabling me to deliver seamless digital experiences that solve real-world problems.
+			</SectionText>
 
-			<ListItem>
-				<picture><SiDocker size="3rem" /></picture>
-				<ListContainer>
-					<ListTitle>DevOps</ListTitle>
-					<ListParagraph>
-						Managed deployments with Docker and CI/CD pipelines. Delivered stable releases using AWS S3 and GitHub integrations.
-					</ListParagraph>
-				</ListContainer>
-			</ListItem>
-		</List>
+			<List>
+				<ListItem>
+					<picture><DiReact size="3rem" /></picture>
+					<ListContainer>
+						<ListTitle>Frontend</ListTitle>
+						<ListParagraph>
+							Built fast, responsive UIs with React and TypeScript, focusing on accessibility and real-world user experience.
+						</ListParagraph>
+					</ListContainer>
+				</ListItem>
 
-		<List2>
-			<ListItem>
-				<picture><SiFigma size="3rem" /></picture>
-				<ListContainer>
-					<ListTitle>UI / UX</ListTitle>
-					<ListParagraph>
-						Designed modern, intuitive interfaces in Figma and translated them into clean, maintainable code for smooth UX.
-					</ListParagraph>
-				</ListContainer>
-			</ListItem>
+				<ListItem>
+					<picture><DiFirebase size="3rem" /></picture>
+					<ListContainer>
+						<ListTitle>Backend</ListTitle>
+						<ListParagraph>
+							Developed scalable backends using Node.js with MongoDB and SQL, implementing authentication and secure data flows.
+						</ListParagraph>
+					</ListContainer>
+				</ListItem>
 
-			<ListItem>
-				<picture><FaCodeBranch size="3rem" /></picture>
-				<ListContainer>
-					<ListTitle>Teamwork</ListTitle>
-					<ListParagraph>
-						Collaborated in Agile teams, using GitHub for version control and code reviews. Ensured fast delivery and quality.
-					</ListParagraph>
-				</ListContainer>
-			</ListItem>
-		</List2>
+				<ListItem>
+					<picture><SiDocker size="3rem" /></picture>
+					<ListContainer>
+						<ListTitle>DevOps</ListTitle>
+						<ListParagraph>
+							Managed deployments with Docker and CI/CD pipelines. Delivered stable releases using AWS S3 and GitHub integrations.
+						</ListParagraph>
+					</ListContainer>
+				</ListItem>
+			</List>
 
-		<SectionSubtitle>Skills</SectionSubtitle>
-		<SectionDivider colorAlt />
+			<List2>
+				<ListItem>
+					<picture><SiFigma size="3rem" /></picture>
+					<ListContainer>
+						<ListTitle>UI / UX</ListTitle>
+						<ListParagraph>
+							Designed modern, intuitive interfaces in Figma and translated them into clean, maintainable code for smooth UX.
+						</ListParagraph>
+					</ListContainer>
+				</ListItem>
 
-		<SkillsContainer>
-			{skillsData.map((skill, index) => (
-				<SkillBar key={index} name={skill.name} percent={skill.percent} />
-			))}
-		</SkillsContainer>
-	</Section >
-);
+				<ListItem>
+					<picture><FaCodeBranch size="3rem" /></picture>
+					<ListContainer>
+						<ListTitle>Teamwork</ListTitle>
+						<ListParagraph>
+							Collaborated in Agile teams, using GitHub for version control and code reviews. Ensured fast delivery and quality.
+						</ListParagraph>
+					</ListContainer>
+				</ListItem>
+			</List2>
+
+			<SectionSubtitle>Skills</SectionSubtitle>
+			<SectionDivider colorAlt />
+
+			<SkillsContainer>
+				{skills.map((skill, index) => (
+					<SkillBar key={index} name={skill.name} percent={skill.percent} />
+				))}
+			</SkillsContainer>
+		</Section >
+	);
+};
 
 export default Technologies;
