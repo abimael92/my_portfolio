@@ -2,233 +2,151 @@ import { IoIosArrowDropdown } from 'react-icons/io';
 import styled from 'styled-components';
 import { BsPalette2 } from 'react-icons/bs';
 
-export const Container = styled.div`
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	z-index: 1000;
-	background: #0f1624;
-	display: grid;
-	grid-template-columns: repeat(
-		5,
-		minmax(0, 1fr)
-	); /* Adjusted column sizing */
-	grid-template-rows: 1fr;
-	grid-gap: 2rem; /* Added gap between grid items */
-	padding: 1rem;
-	padding-top: 2rem;
+export const Container = styled.header`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #0f1624;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 
-	@media ${(props) => props.theme.breakpoints.sm} {
-		grid-template-columns: repeat(
-			5,
-			1fr
-		); /* Keep the same number of columns */
-		grid-template-rows: repeat(2, 60px);
-		grid-gap: 0.5rem;
-	}
-`;
-
-export const Span = styled.div`
-	font-size: 2rem;
+  @media (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+  }
 `;
 
 export const Div1 = styled.div`
-	grid-area: 1 / 1 / 2 / 2;
-	display: flex;
-	align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 
-	@media ${(props) => props.theme.breakpoints.sm} {
-		grid-area: 1 / 1 / 2 / 3; /* Adjust for smaller screens */
-	}
+  @media (min-width: 768px) {
+    width: auto;
+    justify-content: flex-start;
+  }
 `;
 
-export const Div2 = styled.div`
-	grid-area: 1 / 2 / 2 / 5; /* Adjusted to span 3 columns */
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
+export const Div2 = styled.nav`
+  display: ${({ $mobileMenuOpen }) => ($mobileMenuOpen ? 'flex' : 'none')};
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
 
-	@media ${(props) => props.theme.breakpoints.sm} {
-		grid-area: 2 / 1 / 3 / 6; /* Span all 5 columns for smaller screens */
-	}
+  @media (min-width: 768px) {
+    display: flex;
+    flex-direction: row;
+    margin-top: 0;
+    gap: 5rem ;
+  }
 `;
 
 export const Div3 = styled.div`
-	grid-area: 1 / 6 / 2 / 6;
-	display: flex;
-	align-items: center;
-	justify-content: space-around;
-	padding: 0 3rem !important;
-	gap: 1rem;
+  display: none;
 
-	@media ${(props) => props.theme.breakpoints.sm} {
-		grid-area: 1 / 4 / 2 / 6; /* Adjust for smaller screens */
-	}
+  @media (min-width: 768px) {
+    display: flex;
+    gap: 1rem;
+  }
 `;
 
-export const UserLogin = styled.div`
-	position: absolute;
-	top: 2.5rem;
-	right: 0;
-	background: #222;
-	color: white;
-	border-radius: 4px;
-	width: 250px;
-	box-shadow: 0 0 10px rgba(0,0,0,0.5);
-	z-index: 10000;
-	padding: 0.5rem;
-	`;
+export const Span = styled.span`
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  margin-left: 0.5rem;
+`;
 
-// Navigation Links
 export const NavLink = styled.a`
-	font-size: 2rem;
-	line-height: 32px;
-	color: rgba(255, 255, 255, 0.75);
-	transition: 0.4s ease;
-	&:hover {
-		color: #fff;
-		opacity: 1;
-		cursor: pointer;
-		text-decoration: underline;
-	}
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 1.1rem;
+  transition: 0.3s ease;
+  padding: 0.5rem 0;
 
-	&.active,
-	&:active {
-		color: rgb(0,123,255,0.5);
-		opacity: 1;
-		text-decoration: underline;
-	}
+  &:hover {
+    color: #fff;
+    text-decoration: underline;
+  }
 
-	@media ${(props) => props.theme.breakpoints.sm} {
-		padding: 0.5rem;
-	}
+  &.active {
+    color: rgba(0, 123, 255, 0.5);
+    text-decoration: underline;
+  }
+
+  @media (min-width: 768px) {
+    font-size: 2.2rem;
+    padding: 0;
+  }
 `;
-
-export const ContactDropDown = styled.button`
-	border: none;
-	display: flex;
-	position: relative;
-	background: none;
-	font-size: 1.7rem;
-
-	line-height: 32px;
-	color: rgba(255, 255, 255, 0.75);
-	cursor: pointer;
-	transition: 0.3s ease;
-
-	&:focus {
-		outline: none;
-	}
-	&:hover {
-		color: #fff;
-	}
-
-	@media ${(props) => props.theme.breakpoints.sm} {
-		padding: 0.4rem 0;
-	}
-	@media ${(props) => props.theme.breakpoints.md} {
-		padding: 0;
-	}
-`;
-
-export const NavProductsIcon = styled(IoIosArrowDropdown)`
-	margin-left: 8px;
-	display: flex;
-	align-self: center;
-	transition: 0.3s ease;
-	opacity: ${({ isOpen }) => (isOpen ? '1' : '.75')};
-	transform: ${({ isOpen }) => (isOpen ? 'scaleY(-1)' : 'scaleY(1)')};
-
-	&:hover {
-		opacity: 1;
-	}
-
-	@media ${(props) => props.theme.breakpoints.sm} {
-		margin: 2px 0 0 2px;
-		width: 15px;
-	}
-`;
-
-// Social Icons
 
 export const SocialIcons = styled.a`
-	transition: 0.3s ease;
-	color: white;
-	border-radius: 50px;
-	padding: 0 1rem;
-	&:hover {
-		background-color: #212d45;
-		transform: scale(1.2);
-		cursor: pointer;
-	}
+  color: white;
+  transition: 0.3s ease;
+  padding: 0.5rem;
+  border-radius: 50%;
+
+  &:hover {
+    background-color: #212d45;
+    transform: scale(1.1);
+  }
+
+  svg {
+    width: 2.8rem;
+    height: 2.8rem;
+  }
 `;
 
-export const DropdownMenu = styled.div`
-	position: relative;
-	display: inline-block;
-	margin-left: 20px;
+export const MenuButton = styled.button`
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
 
-	/* Style for the icon */
-	svg {
-		cursor: pointer;
-		transition: transform 0.2s;
-
-		&:hover {
-			transform: scale(1.1);
-		}
-	}
+  @media (min-width: 768px) {
+    display: none;
+  }
 `;
 
-export const PaletteIconWrapper = styled.div`
-	position: relative;
+export const UserMenuButton = styled.button`
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  position: relative;
 `;
 
-export const PaletteIcon = styled(BsPalette2)`
-	cursor: pointer;
-	color: white;
-	font-size: 2rem;
+export const UserMenu = styled.div`
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: #222;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
+  min-width: 150px;
 `;
 
-export const ColorPalettePopup = styled.div`
-	position: absolute;
-	top: 100%; /* Position the popup right below the PaletteIcon */
-	left: 0;
-	background-color: #0f1624;
-	border-radius: 4px;
-	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-	padding: 10px;
-	z-index: 1000; /* Ensure it's above other content */
+export const MenuItem = styled.button`
+  background: none;
+  border: none;
+  color: white;
+  width: 100%;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    background: #333;
+  }
 `;
-
-export const ColorOption = styled.div`
-	color: white;
-	cursor: pointer;
-	padding: 6px 0;
-	transition: color 0.3s;
-
-	&:hover {
-		color: #462a60;
-	}
-`;
-
-export const PaletteChangerContainer = styled.div`
-	position: absolute;
-	top: 100%; /* Position it below the PaletteIconWrapper */
-	left: 0;
-	background-color: #0f1624; /* Set background color */
-	padding: 10px; /* Add some padding for spacing */
-	border-radius: 4px; /* Add border radius for a neat look */
-	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-	z-index: 100; /* Ensure it's above other content */
-`;
-
-export const menuButtonStyle = {
-	padding: '8px 12px',
-	background: 'none',
-	border: 'none',
-	color: 'white',
-	width: '100%',
-	textAlign: 'left',
-	cursor: 'pointer',
-};
