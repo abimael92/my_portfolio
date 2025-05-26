@@ -105,11 +105,6 @@ Click Access Private Content to input token for hidden sections.
 
 Update or customize styles via theme.js or styled components.
 
-## 🖼️ Screenshots
-Add screenshots inside the public/images folder and link them here.
-
-markdown
-![Portfolio Preview](public/images/fotovibes.png)
 ❓ FAQs
 Q1: How do I request access to private content?
 A: Click the Access Request button and submit your email. A token will be sent if approved.
