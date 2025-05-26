@@ -46,41 +46,41 @@ The portfolio is built using **Next.js** with animations, theme switching, token
 
 ## ⚙️ Installation and Setup
 
-Clone the repository:
-
-```bash
-git clone https://github.com/your-username/portfolio.git
-```
-
-Navigate into the project directory:
-
-```bash
-cd portfolio
-```
-
-Install dependencies:
-
-```bash
-npm install
-```
-
-Start the development server:
-
-```bash
-npm run dev
-```
-
-For a production build:
-
-```bash
-npm run build
-```
-
-To export as a static site:
-
-```bash
-npm run export
-```
+  Clone the repository:
+  
+  ```bash
+  git clone https://github.com/your-username/portfolio.git
+  ```
+  
+  Navigate into the project directory:
+  
+  ```bash
+  cd portfolio
+  ```
+  
+  Install dependencies:
+  
+  ```bash
+  npm install
+  ```
+  
+  Start the development server:
+  
+  ```bash
+  npm run dev
+  ```
+  
+  For a production build:
+  
+  ```bash
+  npm run build
+  ```
+  
+  To export as a static site:
+  
+  ```bash
+  npm run export
+  ```
 
 The exported site will be in the /out folder.
 
@@ -105,7 +105,7 @@ Click Access Private Content to input token for hidden sections.
 
 Update or customize styles via theme.js or styled components.
 
-##❓ FAQs
+## ❓ FAQs
 
 Q1: How do I request access to private content?
 A: Click the Access Request button and submit your email. A token will be sent if approved.
@@ -122,6 +122,3 @@ Q4: Where are the main files located?
 - **Pages**: `src/pages/`  
 - **Styles**: `src/styles/`  
 - **Firebase Config**: `src/auth/firebaseConfig.js`
-
-
-```
