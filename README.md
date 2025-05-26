@@ -46,6 +46,8 @@ The portfolio is built using **Next.js** with animations, theme switching, token
 
 ## ⚙️ Installation and Setup
 
+<div style="max-width: 600px; margin: auto; padding: 1rem; border: 1px solid #ddd; border-radius: 8px; background-color: #f9f9f9;">
+
   Clone the repository:
   
   ```bash
@@ -83,6 +85,7 @@ The portfolio is built using **Next.js** with animations, theme switching, token
   ```
 
 The exported site will be in the /out folder.
+</div> 
 
 ## 🌐 Deployment
 You can deploy the app using Vercel or any static site hosting:
