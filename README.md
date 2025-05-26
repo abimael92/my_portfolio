@@ -101,19 +101,22 @@ Click projects to view interactive previews.
 
 Use the palette button to toggle theme.
 
-Click Access Private Content to input token for hidden sections.
+Click Access Private Content to input the token for hidden sections.
 
 Update or customize styles via theme.js or styled components.
 
 ## ❓ FAQs
 
 Q1: How do I request access to private content?
+
 A: Click the Access Request button and submit your email. A token will be sent if approved.
 
 Q2: Can I customize the color palette?
+
 A: Yes, use the PaletteChanger component or modify the theme settings in theme.js.
 
 Q3: Is the site mobile responsive?
+
 A: Yes, the portfolio is fully responsive across all devices.
 
 Q4: Where are the main files located?
