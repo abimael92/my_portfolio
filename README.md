@@ -1,10 +1,10 @@
 ## Personal Portfolio
 
-![Portfolio Website](https://abimael-common-assets.s3.eu-west-1.amazonaws.com/myproject-resources/portfolio-preview.png)
-
 A sleek, interactive portfolio web app that showcases projects, skills, and technologies in a clean, user-friendly interface. Built with React and modern web tools, it’s designed to be responsive and easy to update — perfect for sharing your work and experience online.
 
 The portfolio is built using **Next.js** with animations, theme switching, token-based access for private content, and modular components for easy scalability and maintenance.
+
+![Portfolio Website](https://abimael-common-assets.s3.eu-west-1.amazonaws.com/myproject-resources/portfolio-preview.png)
 
 ## 🔗 Live Demo
 
@@ -50,29 +50,41 @@ Clone the repository:
 
 ```bash
 git clone https://github.com/your-username/portfolio.git
+```
+
 Navigate into the project directory:
 
-bash
+```bash
 cd portfolio
+```
+
 Install dependencies:
 
-bash
+```bash
 npm install
+```
+
 Start the development server:
 
-bash
+```bash
 npm run dev
+```
+
 For a production build:
 
-bash
+```bash
 npm run build
+```
+
 To export as a static site:
 
-bash
+```bash
 npm run export
+```
+
 The exported site will be in the /out folder.
 
-🌐 Deployment
+## 🌐 Deployment
 You can deploy the app using Vercel or any static site hosting:
 
 Deploy to Vercel (Recommended)
@@ -82,7 +94,7 @@ Go to vercel.com, sign in with GitHub, and import the project.
 
 Set build command to npm run build and output directory to out.
 
-🧑‍💻 Usage
+## 🧑‍💻 Usage
 Navigate to the homepage to explore content.
 
 Click projects to view interactive previews.
@@ -93,7 +105,7 @@ Click Access Private Content to input token for hidden sections.
 
 Update or customize styles via theme.js or styled components.
 
-🖼️ Screenshots
+## 🖼️ Screenshots
 Add screenshots inside the public/images folder and link them here.
 
 markdown
@@ -111,20 +123,18 @@ A: Yes, the portfolio is fully responsive across all devices.
 Q4: Where are the main files located?
 A:
 
-Components: src/components/
-
-Pages: src/pages/
-
-Styles: src/styles/
-
-Firebase config: src/auth/firebaseConfig.js
+    Components: src/components/
+    
+    Pages: src/pages/
+    
+    Styles: src/styles/
+    
+    Firebase config: src/auth/firebaseConfig.js
 
 📫 Contact
 Author: Abimael García
 GitHub: @your-github
 Email: your.email@example.com
-
-yaml
 
 ---
 ```
