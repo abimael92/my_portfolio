@@ -28,7 +28,7 @@ The portfolio is built using **Next.js** with animations, theme switching, token
 - **Styling**: `styled-components`
 - **Authentication**: Firebase Token-based Access
 - **Animations**: Custom SVG and Lottie animations
-- **Hosting**: Vercel (recommended), also exportable as static site
+- **Hosting**: Vercel (recommended), also exportable as a static site
 - **Utilities**: Context API, Custom Hooks, Dynamic Theming
 
 ---
@@ -37,7 +37,7 @@ The portfolio is built using **Next.js** with animations, theme switching, token
 
 - Interactive and animated hero section
 - Projects gallery with previews and animations
-- Secure access to private content via Firebase token modal
+- Secure access to private content via the Firebase token modal
 - Background animation (particle-style)
 - Responsive design for all screen sizes
 - Access request modal with API endpoints
@@ -92,7 +92,7 @@ Push your code to GitHub.
 
 Go to vercel.com, sign in with GitHub, and import the project.
 
-Set build command to npm run build and output directory to out.
+Set the build command to npm run build and the output directory to out.
 
 ## 🧑‍💻 Usage
 Navigate to the homepage to explore content.
@@ -105,7 +105,8 @@ Click Access Private Content to input token for hidden sections.
 
 Update or customize styles via theme.js or styled components.
 
-❓ FAQs
+##❓ FAQs
+
 Q1: How do I request access to private content?
 A: Click the Access Request button and submit your email. A token will be sent if approved.
 
@@ -116,20 +117,11 @@ Q3: Is the site mobile responsive?
 A: Yes, the portfolio is fully responsive across all devices.
 
 Q4: Where are the main files located?
-A:
 
-    Components: src/components/
-    
-    Pages: src/pages/
-    
-    Styles: src/styles/
-    
-    Firebase config: src/auth/firebaseConfig.js
+- **Components**: `src/components/`  
+- **Pages**: `src/pages/`  
+- **Styles**: `src/styles/`  
+- **Firebase Config**: `src/auth/firebaseConfig.js`
 
-📫 Contact
-Author: Abimael García
-GitHub: @your-github
-Email: your.email@example.com
 
----
 ```
