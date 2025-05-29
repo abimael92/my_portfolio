@@ -46,45 +46,46 @@ The portfolio is built using **Next.js** with animations, theme switching, token
 
 ## ⚙️ Installation and Setup
 
-  Clone the repository:
-  
-  ```bash
-  git clone https://github.com/your-username/portfolio.git
-  ```
-  
-  Navigate into the project directory:
-  
-  ```bash
-  cd portfolio
-  ```
-  
-  Install dependencies:
-  
-  ```bash
-  npm install
-  ```
-  
-  Start the development server:
-  
-  ```bash
-  npm run dev
-  ```
-  
-  For a production build:
-  
-  ```bash
-  npm run build
-  ```
-  
-  To export as a static site:
-  
-  ```bash
-  npm run export
-  ```
+Clone the repository:
+
+```bash
+git clone https://github.com/your-username/portfolio.git
+```
+
+Navigate into the project directory:
+
+```bash
+cd portfolio
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+For a production build:
+
+```bash
+npm run build
+```
+
+To export as a static site:
+
+```bash
+npm run export
+```
 
 The exported site will be in the /out folder.
 
 ## 🌐 Deployment
+
 You can deploy the app using Vercel or any static site hosting:
 
 Deploy to Vercel (Recommended)
@@ -95,6 +96,7 @@ Go to vercel.com, sign in with GitHub, and import the project.
 Set the build command to npm run build and the output directory to out.
 
 ## 🧑‍💻 Usage
+
 Navigate to the homepage to explore content.
 
 Click projects to view interactive previews.
@@ -121,7 +123,7 @@ A: Yes, the portfolio is fully responsive across all devices.
 
 Q4: Where are the main files located?
 
-- **Components**: `src/components/`  
-- **Pages**: `src/pages/`  
-- **Styles**: `src/styles/`  
+- **Components**: `src/components/`
+- **Pages**: `src/pages/`
+- **Styles**: `src/styles/`
 - **Firebase Config**: `src/auth/firebaseConfig.js`
