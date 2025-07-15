@@ -81,7 +81,7 @@ export const HeaderThree = styled.h3`
   letter-spacing: 1.2px;
   color: #9cc9e3;
   font-size: 2rem;
-  margin: 0;
+  margin: 0.5rem;
   line-height: 1.2;
 `;
 
@@ -133,8 +133,8 @@ export const CardInfo = styled.p`
 export const UtilityList = styled.ul`
   display: flex;
   justify-content: ${(props) => (props.hasVisit ? 'space-between' : 'center')};
-  padding: 0;
-  margin: 1rem 0 0 0;
+  padding: 0.5rem;
+  margin: 2rem 0 1rem 0;
   list-style: none;
   gap: 1rem;
   flex-wrap: wrap;
