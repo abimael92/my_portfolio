@@ -25,14 +25,19 @@ const Hero = (props) => {
 					Abimael Garcia (Web Developer)
 				</SectionTitle>
 				<SectionText>
-					Full-Stack Developer with {workExp} years of experience
-					building scalable systems and solving tough technical challenges.
-					Known for effective collaboration in diverse, multicultural teams and adapting quickly to fast-paced demands.
-					Skilled at leading greenfield builds, improving legacy systems, and selecting the right architecture
-					— from monolith to microservices or serverless.
-					Proficient in React, TypeScript, Node.js, SQL, MongoDB, and GraphQL.
-					Committed to clean code, constant learning, and delivering real-world impact
-					from design to deployment.
+
+					{`Full-Stack Developer with ${workExp} years of experience building scalable,
+					high-performing web applications. Experienced in leading new builds,
+					modernizing legacy systems, and choosing the right architecture—monolithic,
+					microservices, or serverless.
+
+					Skilled in React, Next.js, TypeScript, Node.js,
+					GraphQL, SQL, and MongoDB. Known for adaptability, clear communication,
+					and effective collaboration in fast-paced, multicultural teams.
+
+					Focused on clean, maintainable code and delivering real-world value from design to deployment.
+					Committed to continuous learning and practical problem-solving.`}
+
 				</SectionText>
 				<ButtonContainer>
 					<BlurWrapper authenticated={hasAccess}>
