@@ -164,7 +164,27 @@ export const SectionText = styled.p`
   font-weight: 300;
   padding-bottom: 3.6rem;
   color: rgba(255, 255, 255, 0.75);
-  /* margin: 0 auto; */
+  white-space: pre-line;
+  
+  strong {
+    font-weight: 600;
+    color: white;
+  }
+
+  em {
+  font-style: italic;
+  color: #00f0ff;            /* neon cyan */
+  font-weight: 500;
+  background-color: rgba(0, 240, 255, 0.1); /* subtle neon glow */
+  padding: 2px 4px;
+  border-radius: 4px;
+}
+
+  .highlight {
+    color: #1e90ff; /* shiny brownish */
+    font-weight: 500;
+    font-style: bold;
+  }
 
   @media (max-width: 768px) {
     font-size: 18px;

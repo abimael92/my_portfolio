@@ -173,12 +173,23 @@ export const SectionText = styled.div`
 export const AboutSectionText = styled(GlobalSectionText)`
 	width: 50%;
 	flex: 1;
-	font-size: 24px;
-	line-height: 40px;
 	font-weight: 300;
+	font-size: 2rem;      
+  line-height: 1.75;  
 	padding-bottom: 1.6rem;
 	margin-right: 2.6rem;
 	color: rgba(255, 255, 255, 0.5);
+
+  strong {
+    font-weight: 500;
+    color: white;
+  }
+
+  .highlight {
+    color: #d4a373;
+    font-weight: 500;
+    font-style: italic;
+  }
 
 	@media ${(props) => props.theme.breakpoints.md} {
 		font-size: 20px;

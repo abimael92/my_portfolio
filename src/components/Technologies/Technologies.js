@@ -29,20 +29,6 @@ import {
 	SkillPercent
 } from './TechnologiesStyles';
 
-const skillsData = [
-	{ name: 'HTML5', percent: 95 },
-	{ name: 'CSS3', percent: 90 },
-	{ name: 'Bootstrap', percent: 85 },
-	{ name: 'JavaScript', percent: 90 },
-	{ name: 'React', percent: 85 },
-	{ name: 'TypeScript', percent: 80 },
-	{ name: 'Node.js', percent: 75 },
-	{ name: 'MongoDB', percent: 70 },
-	{ name: 'AWS S3', percent: 70 },
-	{ name: 'GraphQL', percent: 45 },
-	{ name: 'Three.js', percent: 40 },
-];
-
 import { useSkills } from '../../hooks/usePortfolioData';
 
 
@@ -91,9 +77,13 @@ const Technologies = () => {
 			<SectionTitle>Technologies</SectionTitle>
 			<SectionDivider />
 			<SectionText>
-				I specialize in full-stack development, creating performant and user-centric web applications.
-				My expertise spans modern front-end frameworks, scalable back-end architectures, and user-focused design,
-				enabling me to deliver seamless digital experiences that solve real-world problems.
+				I specialize in <strong>full-stack development</strong>,
+				crafting <span className="highlight">scalable</span> and <span className="highlight">high-performance </span>
+				web applications centered on exceptional <em>user experiences</em>.<br /><br />
+
+				My expertise spans  <strong>modern front-end </strong>frameworks,
+				efficient<strong> back-end architectures</strong>, and <em>intuitive design</em>,
+				enabling me to deliver seamless digital solutions that address real-world challenges.
 			</SectionText>
 
 			<List>

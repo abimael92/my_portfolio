@@ -94,11 +94,13 @@ const About = () => {
 			<SectionDivider />
 			<Container>
 				<AboutSectionText>
-					Hey there! I’m a web developer who loves tackling challenges and learning new things along the way. <br />
-					I enjoy working with great teams where we can share ideas, mentor each other, and build awesome projects together.
-					I’m always on the lookout for exciting opportunities to grow, contribute, and have fun while doing it —
-					ready to turn caffeine into code!
+					Hey there! I’m a <strong>web developer</strong> passionate about solving problems and learning new technologies along the way.<br /><br />
+
+					I enjoy working with <strong>collaborative teams</strong> where we can share knowledge, support each other, and build meaningful projects together.<br /><br />
+
+					I’m always looking for  <strong>opportunities to grow</strong>, contribute, and enjoy the process — ready to turn  <span className="highlight">caffeine</span> into code! ☕︎
 				</AboutSectionText>
+
 				<RightContainer>
 					<BlurWrapper authenticated={authenticated}>
 						<ImageNeon className="neon-medium">
