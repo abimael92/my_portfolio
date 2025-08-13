@@ -102,6 +102,7 @@ export const SectionSubtitle = styled.h3`
 	line-height: ${(props) => (props.main ? '52px' : '36px')};
 	width: max-content;
 	margin: 20px 0;
+	height: 50px;
 	max-width: 100%;
 	background: linear-gradient(
 		to bottom,
