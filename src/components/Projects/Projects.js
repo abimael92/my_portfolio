@@ -56,7 +56,8 @@ const Projects = () => {
 									<Hr />
 								</TitleContent>
 								<CardInfo>{project.description}</CardInfo>
-								<HeaderStack title>Stack</HeaderStack>
+
+								<HeaderStack>Stack</HeaderStack>
 								<TagList>
 									{project.tags.map((tag, idx) => {
 										return <Tag key={idx}>{tag}</Tag>;

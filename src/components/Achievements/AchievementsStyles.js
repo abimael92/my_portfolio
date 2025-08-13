@@ -34,7 +34,6 @@ export const BoxNum = styled.h5`
 	margin-bottom: 1rem;
 
 	&::before {
-    content: url('/icons/checkmark.svg'); // Icon before the title
     margin-right: 10px;
   }
 

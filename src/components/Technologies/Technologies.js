@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { DiFirebase, DiReact } from 'react-icons/di';
 import { SiDocker, SiFigma } from 'react-icons/si';
 import { FaCodeBranch } from 'react-icons/fa';
-
+import { iconMap } from '../../constants/TechnologiesIcons';
 import { useInView } from 'react-intersection-observer';
 
 import {
@@ -21,6 +21,7 @@ import {
 	ListParagraph,
 	ListTitle,
 	SkillsContainer,
+	SkillsItemsContainer,
 	Row,
 	SkillItem,
 	SkillTitle,
@@ -31,41 +32,47 @@ import {
 
 import { useSkills } from '../../hooks/usePortfolioData';
 
-
-const SkillBar = ({ name, percent }) => {
+const SkillBar = ({ skill, category }) => {
 	const [fill, setFill] = useState(0);
-	const [counter, setCounter] = useState(0);
 	const { ref, inView } = useInView({ triggerOnce: true, threshold: 0.3 });
 
 	useEffect(() => {
 		if (inView) {
 			let progress = 0;
-			const duration = 6500; // 5 seconds total
-			const stepTime = duration / percent;
-
-			const fillTimeout = setInterval(() => {
+			const duration = 2000;
+			const stepTime = duration / skill.percent;
+			const timer = setInterval(() => {
 				progress++;
-				setCounter(progress);
 				setFill(progress);
-				if (progress >= percent) clearInterval(fillTimeout);
+				if (progress >= skill.percent) clearInterval(timer);
 			}, stepTime);
-
-			return () => clearInterval(fillTimeout);
+			return () => clearInterval(timer);
 		}
-	}, [inView, percent]);
+	}, [inView, skill.percent]);
+
+	const getIcon = (skill) => {
+		if (!iconMap[skill?.name]) {
+			console.warn(`Missing icon for skill: "${skill?.name}"`);
+		}
+		return iconMap[skill?.name] || <span>❓</span>;
+	};
+
+
 
 
 	return (
-		<SkillItem ref={ref}>
-			<SkillTitle>{name}</SkillTitle>
-			<Progress>
-				<ProgressIn width={`${fill}%`} />
-				<SkillPercent>{counter}%</SkillPercent>
-			</Progress>
-		</SkillItem>
+		<SkillsItemsContainer>
+			<SkillItem ref={ref} style={{ minWidth: '220px', flex: '1 1 auto' }}>
+				<SkillTitle>{getIcon(skill)} {skill.name}</SkillTitle>
+
+				<Progress>
+					<ProgressIn width={`${fill}%`} />
+					<SkillPercent>{fill}%</SkillPercent>
+				</Progress>
+			</SkillItem>
+		</SkillsItemsContainer>
 	);
 };
-
 
 const Technologies = () => {
 	const { skills, loading } = useSkills();
@@ -140,14 +147,34 @@ const Technologies = () => {
 				</ListItem>
 			</List2>
 
-			<SectionSubtitle>Skills</SectionSubtitle>
+			<SectionSubtitle>Skills & Proficiency</SectionSubtitle>
 			<SectionDivider colorAlt />
 
 			<SkillsContainer>
-				{skills.map((skill, index) => (
-					<SkillBar key={index} name={skill.name} percent={skill.percent} />
-				))}
+				{['frontend', 'backend', 'cloud', 'testing', 'design'].map((category) => {
+					const categorySkills = skills.filter((s) => s.category === category);
+					if (!categorySkills.length) return null;
+
+					return (
+						<div key={category} style={{ marginBottom: '3rem' }}>
+							<h2 style={{ marginBottom: '1rem', fontWeight: '700', textTransform: 'uppercase', color: '#04D9FF' }}>
+								{category === 'frontend' && 'Libraries & Frameworks'}
+								{category === 'backend' && 'Backend & APIs'}
+								{category === 'cloud' && 'Infrastructure & Tools'}
+								{category === 'testing' && 'Testing & QA'}
+								{category === 'design' && 'Design & UI/UX'}
+							</h2>
+
+							<Row>
+								{categorySkills.map((skill) => (
+									<SkillBar key={skill.name} skill={skill} category={category} />
+								))}
+							</Row>
+						</div>
+					);
+				})}
 			</SkillsContainer>
+
 		</Section >
 	);
 };
