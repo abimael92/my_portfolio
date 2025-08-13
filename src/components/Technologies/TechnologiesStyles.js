@@ -189,30 +189,44 @@ export const ListIcon = styled.img`
 
 
 
-export const SkillsContainer = styled.div`
-  padding: 3rem;
+export const SkillsItemsContainer = styled.div`
+  padding: 0rem 3rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 1rem; /* Adjust the gap between items if needed */
   box-sizing: border-box; /* Include padding and border in element's total width and height */
 `;
 
+// export const Row = styled.div`
+//   display: flex;
+//   flex-wrap: wrap;
+//   gap: 1rem; /* Space between items */
+//   box-sizing: border-box; /* Include padding and border in element's total width and height */
+//   width: 100%;
+//   margin: 0 auto; /* Center the row */
+// `;
+
+export const SkillsContainer = styled.div`
+  padding: 2rem;
+  display: flex;
+  flex-direction: column; /* stack categories vertically */
+  gap: 2rem;
+`;
+
 export const Row = styled.div`
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem; /* Space between items */
-  box-sizing: border-box; /* Include padding and border in element's total width and height */
-  width: 100%;
-  margin: 0 auto; /* Center the row */
+  flex-wrap: wrap; /* allows items to stay inline and wrap to next line */
+  gap: 1rem;
 `;
+
 
 
 export const SkillItem = styled.div`
-   box-sizing: border-box; /* Include padding and border in element's total width and height */
-   margin: 2rem; /* Adjust bottom margin as needed */
-   gap: 2rem;
-
+  position: relative;        /* required for SkillPercent positioning */
+  flex: 0 1 220px;          /* fixed width for each skill item, but still responsive */
+  margin: 0.5rem;            /* gap between skills */
 `;
+
 
 export const Progress = styled.div`
   background-color: #e3e3e3;
