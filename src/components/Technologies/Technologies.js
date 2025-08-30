@@ -158,7 +158,7 @@ const Technologies = () => {
 				</ListItem>
 			</List2>
 
-			<SectionSubtitle>Skills & Proficiency</SectionSubtitle>
+			<SectionTitle>Skills & Proficiency</SectionTitle>
 			<SectionDivider colorAlt />
 
 			<SectionText>

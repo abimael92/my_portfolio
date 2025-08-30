@@ -16,9 +16,12 @@ export const TimeLineContainer = styled.div`
   padding: 2rem;
 
   @media (max-width: 768px) {
-  padding: 1rem;
-  min-width: 100%;
-}
+    padding: 1rem;
+    min-width: 100%;    
+	height: 520px; 
+	margin: 0;     /* take full width on mobile */
+    box-sizing: border-box;
+  }
 
 `;
 
@@ -26,14 +29,14 @@ export const CarouselContainer = styled.div`
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
-  padding: 2rem 0;
+  padding: 0;
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
 
-  @media (max-width: 768px) {
+  /* @media (max-width: 768px) {
     padding: 1rem 0;
-  }
+  } */
 
   &::-webkit-scrollbar {
     display: none;
@@ -46,6 +49,10 @@ export const CarouselButtons = styled.div`
 	display: flex;
 	justify-content: center;
 	margin: 0 3rem ;
+
+	@media (max-width: 480px) {
+		display: none;
+}
 `;
 
 export const CarouselButton = styled.button`
@@ -119,7 +126,9 @@ export const CarouselMobileScrollNode = styled.div`
   gap: 1rem;
 
   @media (max-width: 768px) {
+    flex-wrap: nowrap;
     padding: 0 1rem;
+    overflow-x: auto;
   }
 `;
 
@@ -147,7 +156,7 @@ export const CarouselItem = styled.div`
   @media (max-width: 768px) {
     min-width: 90%;
     flex: 0 0 90%;
-    margin: 0.5rem;
+    margin: 0.5rem 0; 
     padding: 1rem;
   }
 `;
@@ -177,7 +186,7 @@ export const TimeLineItemTitle = styled.h4`
 	margin: 10px auto 0;
 
 	@media ${(props) => props.theme.breakpoints.sm} {
-		font-size: 14px;
+		font-size: 24px;
 		line-height: 20px;
 	}
 `;
@@ -201,6 +210,11 @@ export const CarouselItemDot = styled.div`
 		props.active === props.index
 			? '0 0 15px 5px rgba(255, 255, 255, 0.8) !important'
 			: 'none'};
+
+	@media (max-width: 480px) {
+		width: 1.2rem;
+		height: 1.2rem;
+	}
 `;
 
 
@@ -236,6 +250,7 @@ export const CarouselItemText = styled.p`
 		font-size: 10px;
 		line-height: 16px;
 		padding-right: 0;
+		height: 0.2rem;
 	}
 `;
 

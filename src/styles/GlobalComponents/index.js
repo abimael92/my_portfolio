@@ -100,7 +100,7 @@ export const SectionSubtitle = styled.h3`
 	font-size: ${(props) => (props.main ? '55px' : '46px')};
 	line-height: ${(props) => (props.main ? '52px' : '36px')};
 	width: max-content;
-	margin: 100px 0 20px;
+	margin: 100px 0 16px;
 	height: 50px;
 	max-width: 100%;
 	background: linear-gradient(
@@ -110,7 +110,7 @@ export const SectionSubtitle = styled.h3`
 	);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent; 
-	padding: ${(props) => (props.main ? '58px 0 16px' : '0')};
+	padding: ${(props) => (props.main ? '18px 0 16px' : '0')};
 	background-clip: text; 
 	text-fill-color: transparent; 
 
@@ -223,9 +223,9 @@ export const SectionSmallText = styled.p`
 `;
 
 export const SectionDivider = styled.div`
-	width: 84px;
+	width: 184px;
 	padding-bottom: 12px;
-	margin-bottom: 16px;
+	margin-bottom: 5rem;
 	height: 6px;
 	border-radius: 10px;
 	background-color: #fff;

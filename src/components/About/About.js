@@ -91,7 +91,7 @@ const About = () => {
 	return (
 		<Section id='about'>
 			<SectionTitle>About Me</SectionTitle>
-			<SectionDivider />
+			<SectionDivider colorAlt />
 			<Container>
 				<AboutSectionText>
 					Hey there! I’m a <strong>web developer</strong> passionate about solving problems and learning new technologies along the way.<br /><br />
