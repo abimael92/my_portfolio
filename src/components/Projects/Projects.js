@@ -41,7 +41,7 @@ const Projects = () => {
 	return (
 		<Section nopadding id='projects'>
 			<SectionTitle main>Projects</SectionTitle>
-			<SectionDivider />
+			<SectionDivider colorAlt />
 
 			<GridContainer>
 				{projects.map((project, index) => {
