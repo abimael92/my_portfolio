@@ -107,17 +107,26 @@ export const RotatingText = styled.h2`
 	font-weight: bold;
 	color: rgb(0, 123, 255);
 	margin-top: 1rem;
+	font-family: monospace; /* gives typewriter feel */
 
 	.txt-rotate > .wrap {
-		border-right: 0.1em solid #666;
-	}
+    display: inline;
+    border-right: 0.15em solid rgb(0, 123, 255); /* matches text color */
+    white-space: nowrap;
+    overflow: hidden;
+    animation: blink 0.75s step-end infinite;
+  }
 
-	@media ${(props) => props.theme.breakpoints.sm} {
-		font-size: 3rem;
-		text-align: center;
-		margin-top: 0.75rem;
-		min-width: auto;
-	}
+  @keyframes blink {
+    from, to { border-color: transparent; }
+    50% { border-color: rgb(0, 123, 255); }
+  }
+
+  @media ${(props) => props.theme.breakpoints.sm} {
+    font-size: 2.25rem;
+    text-align: center;
+    margin-top: 0.75rem;
+  }
 `;
 
 export const StyledSectionTitle = styled(SectionTitle)`
