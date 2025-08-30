@@ -26,7 +26,7 @@ export const CarouselContainer = styled.div`
   display: flex;
   overflow-x: auto;
   scroll-behavior: smooth;
-  padding: 2rem 0;
+  padding: 0;
   margin: 0 auto;
   width: 100%;
   box-sizing: border-box;
