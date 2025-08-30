@@ -34,6 +34,7 @@ import {
 	Section,
 	SectionDivider,
 	SectionTitle,
+	SectionSubtitle,
 	SectionTitle2,
 	SectionSmallText,
 } from '../../styles/GlobalComponents';
@@ -165,8 +166,8 @@ const Experience = () => {
 				<ArrowButton onClick={handleForward}>&gt;</ArrowButton>
 			</CarouselButtons>
 
-			<SectionTitle2>Education</SectionTitle2>
-			<SectionDivider />
+			<SectionTitle>Education</SectionTitle>
+			<SectionDivider colorAlt />
 			<EducationItem>
 				{education?.map((item, index) => (
 					<React.Fragment key={index}>
