@@ -53,10 +53,13 @@ export const List = styled.ul`
   }
 
   @media ${(props) => props.theme.breakpoints.sm} {
-    display: flex;
+	display: flex;
     flex-direction: column;
-    margin: 32px 0;
+    align-items: center; /* center items horizontally */
+    margin: 0;
     max-width: 100%;
+    padding: 5%;
+    gap: 2rem; /* optional spacing between items */
   }
 `;
 
@@ -82,10 +85,13 @@ export const List2 = styled.ul`
   }
 
   @media ${(props) => props.theme.breakpoints.sm} {
-    display: flex;
+	display: flex;
     flex-direction: column;
-    margin: 32px 0;
+    align-items: center; /* center items horizontally */
+    margin: 0;
     max-width: 100%;
+    padding: 5%;
+    gap: 2rem; /* optional spacing between items */
   }
 `;
 
@@ -161,9 +167,11 @@ export const ListItem = styled.li`
 	}
 
 	@media ${(props) => props.theme.breakpoints.sm} {
-		margin-bottom: 14px;
-		max-width: 320px;
-		flex-direction: row;
+	    flex-direction: column;
+    align-items: center; /* center content */
+    text-align: center;  /* center text */
+    width: 100%;         /* optional: make them responsive */
+    max-width: 320px;    /* keep the same as desktop card width */
 	}
 `;
 
@@ -219,6 +227,10 @@ export const SkillsContainer = styled.div`
     color: #04D9FF;
     cursor: pointer;
     user-select: none;
+
+	@media ${(props) => props.theme.breakpoints.sm} {
+		font-size: 18px;
+	}
 
     span {
       display: inline-block; /* needed for transform */
