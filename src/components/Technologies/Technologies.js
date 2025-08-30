@@ -76,8 +76,19 @@ const SkillBar = ({ skill, category }) => {
 
 const Technologies = () => {
 	const { skills, loading } = useSkills();
+	const [openCategories, setOpenCategories] = useState([]);
+
 
 	if (loading) return <div>Loading skills...</div>;
+
+	const toggleCategory = (category) => {
+		setOpenCategories((prev) =>
+			prev.includes(category)
+				? prev.filter((c) => c !== category) // close if already open
+				: [...prev, category] // open in addition
+		);
+	};
+
 
 	return (
 		<Section id='tech'>
