@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 import {
 	BlogCard,
@@ -14,6 +14,9 @@ import {
 	TitleContent,
 	UtilityList,
 	Img,
+	ImgWrapper,
+	ButtonContainer,
+	ShowMoreButton
 } from './ProjectsStyles';
 
 import {
@@ -34,9 +37,11 @@ const Projects = () => {
 	const authenticated = !!accessToken;
 
 	const { projects, loading } = useProjects();
-
+	const [showAll, setShowAll] = useState(false);
 
 	if (loading) return <div>Loading projects...</div>;
+
+	const projectsToShow = showAll ? projects : projects.slice(0, 3);
 
 	return (
 		<Section nopadding id='projects'>
@@ -44,52 +49,61 @@ const Projects = () => {
 			<SectionDivider colorAlt />
 
 			<GridContainer>
-				{projects.map((project, index) => {
-					return (
-						<BlogCard key={index}>
-							<Content>
-								<Img src={project.image} alt={project.title} />
-								<TitleContent>
-									<HeaderThree title={project.title.toString()}>
-										{project.title}
-									</HeaderThree>
-									<Hr />
-								</TitleContent>
-								<CardInfo>{project.description}</CardInfo>
+				{projectsToShow.map((project, index) => (
+					<BlogCard key={index}>
+						<ImgWrapper>
+							<Img src={project.image} alt={project.title} />
+						</ImgWrapper>
+						<Content>
 
-								<HeaderStack>Stack</HeaderStack>
-								<TagList>
-									{project.tags.map((tag, idx) => {
-										return <Tag key={idx}>{tag}</Tag>;
-									})}
-								</TagList>
-								<UtilityList>
-									{project.source ? (
-										<BlurWrapper authenticated={authenticated}>
-											<ExternalLinks
-												href={project.source}
-												target='_blank'
-												rel='noopener noreferrer'>
-												Code
-											</ExternalLinks>
-										</BlurWrapper>
-									) : (
-										<ExternalLinks disabled>Code</ExternalLinks>
-									)}
-									{project.visit && (
+							<TitleContent>
+								<HeaderThree title={project.title.toString()}>
+									{project.title}
+								</HeaderThree>
+								<Hr />
+							</TitleContent>
+							<CardInfo>{project.description}</CardInfo>
+
+							<HeaderStack>Stack</HeaderStack>
+							<TagList>
+								{project.tags.map((tag, idx) => {
+									return <Tag key={idx}>{tag}</Tag>;
+								})}
+							</TagList>
+							<UtilityList>
+								{project.source ? (
+									<BlurWrapper authenticated={authenticated}>
 										<ExternalLinks
-											href={project.visit}
+											href={project.source}
 											target='_blank'
 											rel='noopener noreferrer'>
-											Visit
+											Code
 										</ExternalLinks>
-									)}
-								</UtilityList>
-							</Content>
-						</BlogCard>
-					);
-				})}
+									</BlurWrapper>
+								) : (
+									<ExternalLinks disabled>Code</ExternalLinks>
+								)}
+								{project.visit && (
+									<ExternalLinks
+										href={project.visit}
+										target='_blank'
+										rel='noopener noreferrer'>
+										Visit
+									</ExternalLinks>
+								)}
+							</UtilityList>
+						</Content>
+					</BlogCard>
+				))}
 			</GridContainer>
+			{/* Show More / Show Less button */}
+			{projects.length > 2 && (
+				<ButtonContainer>
+					<ShowMoreButton showAll={showAll} onClick={() => setShowAll(!showAll)}>
+						{showAll ? 'Show Less' : 'Show More'}
+					</ShowMoreButton>
+				</ButtonContainer>
+			)}
 		</Section>
 	);
 };
