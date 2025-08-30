@@ -96,12 +96,11 @@ export const SectionTitle2 = styled.h2`
 `;
 
 export const SectionSubtitle = styled.h3`
-	color: #ff0000;
 	font-weight: 600;
 	font-size: ${(props) => (props.main ? '55px' : '46px')};
 	line-height: ${(props) => (props.main ? '52px' : '36px')};
 	width: max-content;
-	margin: 20px 0;
+	margin: 100px 0 20px;
 	height: 50px;
 	max-width: 100%;
 	background: linear-gradient(

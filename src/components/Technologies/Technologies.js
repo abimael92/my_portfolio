@@ -150,6 +150,17 @@ const Technologies = () => {
 			<SectionSubtitle>Skills & Proficiency</SectionSubtitle>
 			<SectionDivider colorAlt />
 
+			<SectionText>
+				Over the years I’ve worked across the <strong>full stack</strong> — from building{' '}
+				<span className="highlight">sleek interfaces</span> to managing{' '}
+				<span className="highlight">reliable back-end systems</span> and{' '}
+				<strong>cloud infrastructure</strong>.
+				<br /><br />
+				Explore each category below to see the <em>technologies</em> I use and the
+				depth of <strong>experience</strong> I bring to every project.
+			</SectionText>
+
+
 			<SkillsContainer>
 				{['frontend', 'backend', 'cloud', 'testing', 'design'].map((category) => {
 					const categorySkills = skills.filter((s) => s.category === category);
@@ -157,19 +168,30 @@ const Technologies = () => {
 
 					return (
 						<div key={category} style={{ marginBottom: '3rem' }}>
-							<h2 style={{ marginBottom: '1rem', fontWeight: '700', textTransform: 'uppercase', color: '#04D9FF' }}>
-								{category === 'frontend' && 'Libraries & Frameworks'}
-								{category === 'backend' && 'Backend & APIs'}
-								{category === 'cloud' && 'Infrastructure & Tools'}
-								{category === 'testing' && 'Testing & QA'}
-								{category === 'design' && 'Design & UI/UX'}
+							<h2
+								onClick={() => toggleCategory(category)}
+								className={openCategories.includes(category) ? 'active' : ''}
+							>
+								<span>
+									{'< '}
+									{category === 'frontend' && 'Libraries & Frameworks'}
+									{category === 'backend' && 'Backend & APIs'}
+									{category === 'cloud' && 'Infrastructure & Tools'}
+									{category === 'testing' && 'Testing & QA'}
+									{category === 'design' && 'Design & UI/UX'}
+									{' />'}
+								</span>
 							</h2>
 
-							<Row>
-								{categorySkills.map((skill) => (
-									<SkillBar key={skill.name} skill={skill} category={category} />
-								))}
-							</Row>
+
+							{openCategories.includes(category) && (
+								<Row>
+									{categorySkills.map((skill) => (
+										<SkillBar key={skill.name} skill={skill} category={category} />
+									))}
+								</Row>
+							)}
+
 						</div>
 					);
 				})}

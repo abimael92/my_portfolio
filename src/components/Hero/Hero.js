@@ -37,7 +37,6 @@ const Hero = (props) => {
 
 					Focused on clean, maintainable code and delivering real-world value from design to deployment.
 					Committed to continuous learning and practical problem-solving.`}
-
 				</SectionText>
 				<ButtonContainer>
 					<BlurWrapper authenticated={hasAccess}>

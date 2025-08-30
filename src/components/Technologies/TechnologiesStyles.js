@@ -211,6 +211,29 @@ export const SkillsContainer = styled.div`
   display: flex;
   flex-direction: column; /* stack categories vertically */
   gap: 2rem;
+
+  h2 {
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #04D9FF;
+    cursor: pointer;
+    user-select: none;
+
+    span {
+      display: inline-block; /* needed for transform */
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    &:hover span {
+      color: #00ffff; /* hover cyan */
+      transform: translateX(8%); /* smoother shift only on text */
+    }
+
+    &.active span {
+      color: #ffd700; /* gold when active */
+    }
+  }
 `;
 
 export const Row = styled.div`
