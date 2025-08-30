@@ -113,11 +113,17 @@ const About = () => {
 						</ImageNeon>
 					</BlurWrapper>
 					<RotatingText>
-						<span className="txt-rotate" data-period="1000" data-rotate={JSON.stringify(toRotate)}>
-							{`I'm a `}
-							<span className="wrap">{text}</span>
+						<span
+							className="txt-rotate"
+							data-period="1000"
+							data-rotate={JSON.stringify(toRotate)}
+						>
+							<span className="wrap">
+								{`I'm a ${text}`}
+							</span>
 						</span>
 					</RotatingText>
+
 				</RightContainer>
 			</Container>
 
